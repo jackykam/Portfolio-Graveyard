@@ -1,0 +1,525 @@
+/*Use of global style variables*/
+:root{
+    /*Text*/
+    --font_family: "Futura",Trebuchet,Arial,sans-serif;
+    --font_small: 16px;
+    --font_mid: 18px;
+    --font-large: 24px;
+    --font-title: 40px;
+    --font_header: 48px;
+    --letter_spacing_para: 2px;
+    --letter_spacing_header: 8px;
+    /*Colors*/
+    --blue_dark: rgb(45, 176, 252);
+    --blue_gradient: linear-gradient(to left bottom, rgba(45, 128, 236, 0.8) 10%, 60%, rgba(58, 209, 255, 0.8) 90%);
+    --grey_gradient: linear-gradient(to right top, rgba(51, 51, 51, 0.8) 10%, 30%, rgba(0, 0, 0, 0.8) 90%);
+    /*Sizes*/
+    --icon_size: 48px;
+}
+
+.contentContainer, .tableButton, .backToTop, .backToTop:hover, .projectDescHeader,.projectDescFluff, .projectPageTag, 
+.projectPageTitle, .projectPageSummary, .overlay, .projectPageFluff,.FluffButton, .FluffDropdown, .contactFormBtn{
+    color: rgb(255, 255, 255);
+}
+.mainContainer, .mainContainer-bg,.mainContainer-bg-darken,.contentContainer,.tableHeader, .projectDesc, .projectDescHeader, 
+.projectDescBody, .projectDescDate, .projectDescFluff, .projectPageContainer, .closeButton, .overlay{
+    position: absolute;
+}
+.contentHeader, .homeHeaderTitle, .homeBlurb, .mediaText, .tableButtons, .tableItem,.projectPage, .projectPageTags, .projectPageTag,
+.projectPagePicture, .FluffButton, .FluffDropdown, #aboutCourseTable{
+    position: relative;
+}
+
+/*BootStrap NavBar*/
+.navbar {
+    background:#535353;}
+.nav-link,
+.navbar-brand {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;}
+.nav-link {
+    margin-right: 1em !important;}
+.nav-link:hover {
+    color: rgb(146, 146, 146);}
+.navbar-collapse {
+    justify-content: flex-end;}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); 
+    background: rgba(99, 99, 99, 0.3);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 5px;}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to left bottom, rgb(165, 11, 11), rgb(37, 37, 180)); 
+    border-radius: 20px;
+    opacity: 0.5;}
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1; }
+
+body { 
+    background: url('assets/background.jpg') no-repeat fixed center;}
+div.preloader{
+    background: #21242d url('https://cssauthor.com/wp-content/uploads/2018/06/Bouncy-Preloader.gif') no-repeat center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    opacity: 1;
+    transition: all 1s ease;}
+div.preloader.animate{
+    top: -100vh;
+    opacity: 0;}
+span.mainContainer{
+    background: url('assets/background.jpg') no-repeat fixed center;
+    border-radius: 50px;
+    width: 90%;
+    left: 0px;
+    right: 0px;
+    top: 70px;
+    bottom: 20px;
+    margin: auto;
+    padding: 0px;
+    overflow-y: auto;}
+div.mainContainer-bg{
+    background: url('assets/background.jpg') no-repeat fixed center;
+    width: 100%;
+	height: 100%;
+    background-repeat: no-repeat;
+    filter: blur(10px);
+    z-index: 1;}
+div.mainContainer-bg-darken{
+    background-color: #000000;
+    width: 100%;
+	height: 100%;
+    opacity: 0.5;
+    z-index: 2;}
+div.contentContainer{
+    width: 100%;
+    height: 100%;
+    font-size: var(--font-title);
+    overflow-x: hidden;
+    z-index: 3;}
+div.contentHeader{
+    margin: 30px 0px;
+    min-height: max-content;
+    font: 700 var(--font_header) var(--font_family);
+    text-align: center;
+    letter-spacing: var(--letter_spacing_header);}
+
+/*-----Home Page styles-----*/
+img.homeImage{
+    max-width: 400px;}
+div.homeHeader{
+    padding: 0px 0px 0px 60px;}
+p.homeHeaderName{
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 0;}
+p.homeHeaderTitle{
+    top: -20px;
+    color: rgb(200, 200, 200);
+    font: 500 20px var(--font_family);
+    line-height: 1;}
+div.homeBlurb{
+    border-top: 5px solid rgb(255, 255, 255);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    margin: auto;
+    padding: 30px 5px 0px 5px;
+    font: 500 var(--font_mid) var(--font_family);}
+text.homeBlurbQuote{
+    color: rgb(234, 236, 72); 
+    font-weight: 700; 
+    text-align: center; 
+    transform: scaleY(0);}
+text.projectsLink{
+    color: var(--blue_dark);
+    text-decoration: underline;
+    cursor: pointer;}
+img.mediaIcon{
+    transition: transform .3s ease-out;}
+img.mediaIcon:hover{
+    cursor: pointer;
+    transform: translate(0, -5px);}
+div.mediaText{
+    width: 100%;
+    height: var(--icon_size);}
+
+/*-----Project Page styles-----*/
+/*Project Main Page*/
+p.projectBlurb{
+    width: 100%;
+    padding: 0px 50px;
+    font-size: var(--font_mid);
+    letter-spacing: var(--letter_spacing_para);
+    text-align: left;}
+div.tableButtons{
+    padding: 50px 80px 20px 80px;}
+button.tableButton{
+    background: var(--blue_gradient);
+    border: 1px solid var(--blue_dark);
+    font: 700 var(--font-large) var(--font_family);
+    transition: all .3s ease-out;}
+button.tableButton:hover{
+    background: linear-gradient(to left bottom, rgba(45, 128, 236, 1) 10%, 60%, rgba(58, 209, 255, 1) 90%);
+    color: rgb(230, 230, 230);
+    transform: translate(0, -5px);}
+button.backToTop{
+    background-color: transparent;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    width: 100%;
+    font: 700 var(--font-title) var(--font_family);
+    padding: 20px 0px;
+    margin-bottom: 10px;}
+button.backToTop:hover{
+    background-color: rgba(231, 231, 231, 0.2);}
+/*Table Items*/
+div.tableItem{
+    background: rgba(0, 0, 0, 0.6) no-repeat center;
+    background-size: contain;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 200px;
+    height: 0;
+    padding: 0 0 300px 0;
+    overflow-y: hidden;
+    opacity: 0;
+    cursor: pointer;
+    transform: scale(0);}
+div.tableItem.animate{
+    transform: scale(1);
+    opacity: 1;
+    transition: 0.7s;}
+div.tableHeader{
+    background-color: rgba(43, 43, 43, 0.8);
+    min-height: 50px;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
+    font: 700 var(--font-large) var(--font_family);
+    line-height: 50px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out}
+div.tableHeader.animate{
+    opacity: 0;}
+div.projectDesc{
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 200px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out, transform 0.5s ease-in-out;}
+div.projectDesc.animate{
+    transform: translate(0, -200px);
+    opacity: 1;}
+text.projectDescHeader{
+    background: var(--grey_gradient);
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    padding: 10px 0px 5px 0px;
+    font: 700 var(--font-large) var(--font_family);
+    letter-spacing: var(--letter_spacing_para);
+    transform: scaleY(1.2);}
+text.projectDescBody{
+    top: 65px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    padding: 0px 10px;
+    font: 700 var(--font_mid) var(--font_family);}
+text.projectDescDate{
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    font: 700 var(--font_mid) var(--font_family);
+    transform: scaleY(1.2);}
+text.projectDescFluff{
+    background: var(--grey_gradient);
+    border-top: 1px solid rgb(255, 255, 255);
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    font: 700 var(--font_mid) var(--font_family);
+    text-align: right;
+    transform: scaleY(1.2);}
+i.tablePad{
+    width: 400px;}
+/*Project Item Page*/
+span.projectPageContainer{
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: block;
+    overflow-y: hidden;}
+img.closeButton{
+    border: 5px solid transparent;
+    border-radius: var(--icon_size);
+    top: 20px;
+    right: 15px;
+    height: var(--icon_size);
+    width: var(--icon_size);
+    z-index: 1;}
+img.closeButton:hover{
+    border-color: rgba(255, 255, 255, 0.5);}
+div.projectPage{
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.95) 10%, 20%, rgba(0, 0, 0, 0.95) 90%);
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 0px 0px;
+    top: 100%;
+    overflow-y: scroll;
+    transition: all 0.5s ease-in-out;}
+div.projectPage.animate{
+    top: 0%;
+    opacity: 1;}
+div.projectPageBanner{
+    background: no-repeat fixed center;
+    border-radius: 30px;
+    width: 100%;
+    overflow: hidden;}
+img.projectPageBanner{
+    width: 100%;
+    height: 100%; 
+    object-fit: contain;}
+div.projectPageTags{
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    padding: 0px 30px;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;}
+text.projectPageTag{
+    background: linear-gradient(to left bottom, rgba(45, 128, 236, 1) 10%, 60%, rgba(58, 209, 255, 1) 90%);
+    border-radius: 30px;
+    border: 1px solid green;
+    position: relative;
+    padding: 2px 10px;
+    margin: 3px 3px;
+    font: 700 var(--font_small) var(--font_family);
+    letter-spacing: 1px;
+    max-width: max-content;
+    min-width: min-content;}
+p.projectPageTitle{
+    border-bottom: 6px solid transparent;
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(58, 209, 255, 0.95) 50%, rgb(255, 255, 255, 0));
+    border-image-slice: 1;
+    margin-top: 20px;
+    font: 700 var(--font-title) var(--font_family);
+    letter-spacing: var(--letter_spacing_para);
+    text-align: center;}
+p.projectPageSummary{
+    margin-top: 20px;
+    padding: 0px 30px;
+    font: 500 var(--font_small) var(--font_family);
+    letter-spacing: 1px;}
+div.projectPagePictures{
+    max-width: 1000px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    padding: 0px;
+    margin: 50px auto;}
+div.projectPagePicture{
+    background: no-repeat center;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 0px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;}
+div.projectPagePicture:hover{
+    border-color: var(--blue_dark);}
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    bottom: 0;
+    padding: 10px; 
+    font: 500 var(--font_small) var(--font_family);
+    text-align: center;
+    opacity:0;
+    transition: .4s ease;}
+div.projectPagePicture:hover .overlay {
+    opacity: 1;}
+p.projectPageFluff{
+    width: 100%;
+    padding: 0px 70px;
+    margin: 0px;
+    font: 500 14px var(--font_family);
+    letter-spacing: 1px;}
+button.FluffButton{
+    background-color: transparent;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin: 10px 70px 0px 70px;
+    font: 700 20px var(--font_family);}
+.FluffDropdown{
+    height: 0px;
+    margin: 0px 50px 20px 50px; 
+    font: 500 var(--font_mid) var(--font_family);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    overflow: hidden;}
+.FluffDropdown.animate{
+    height: fit-content;
+    opacity: 1;}
+img.toTopButton{
+    position: fixed;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    right: 7%;
+    bottom: 5%;
+    padding: 10px;
+    display: none;
+    opacity: none;
+    transition: all 0.5s ease}
+
+/*-----About Page styles-----*/
+div.aboutHeader{
+    position: relative;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    padding: 30px 50px 20px 50px;
+    margin: auto;
+    align-items: center;}
+div.aboutHeaderPic{
+    background: no-repeat center;
+    background-size: contain;
+    border-radius: 20px;
+    padding: 0px;
+    min-width: 300px;
+    max-width: 500px;
+    overflow: hidden;}
+div.aboutHeaderBlurb{
+    padding: 20px 30px; 
+    min-width: 300px;
+    font: 500 20px var(--font_family)}
+div.aboutSectionHeader{
+    font: 700 36px var(--font_family);
+    padding: 30px 0px 0px 0px; 
+    text-align: center;}
+p.aboutHistoryCard{
+    background: var(--grey_gradient);
+    border-radius: 30px;
+    height: 100%;
+    padding: 20px;
+    font: 500 var(--font_small) var(--font_family);
+    letter-spacing: 1px;}
+#aboutCourseTable{
+    background: var(--grey_gradient);
+    border-radius: 0px 50px 50px 50px; 
+    margin: 0px 30px; 
+    padding: 10px 0px;}
+table.courseTable{
+    margin: 10px 0px;
+    font-size: var(--font_small);
+    align-items: center;}
+td{
+    border: 10px solid transparent;}
+
+/*-----Content Page styles-----*/
+div.contactContainer{
+    background: var(--grey_gradient);
+    border-radius: 30px;
+    margin: 10px;
+    overflow: hidden;}
+div.contactDetails{
+    background: var(--blue_gradient);
+    border-radius: 30px;
+    font-size: var(--font-large);}
+div.contactForm{
+    background-color: transparent;}
+p.contactDetailsHeader, p.contactFormHeader{
+    border-bottom: 6px solid transparent;
+    text-align: center;
+    font: 700 var(--font-title) var(--font_family);
+    letter-spacing: var(--letter_spacing_para);
+    padding-bottom: 20px;
+    margin: 30px 0px 0px 0px;}
+p.contactDetailsHeader{
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(15, 15, 15, 0.95) 50%, rgb(255, 255, 255, 0));
+    border-image-slice: 1;}
+p.contactFormHeader{
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(58, 209, 255, 0.95) 50%, rgb(255, 255, 255, 0));
+    border-image-slice: 1;}
+button.contactFormBtn{
+    background: var(--blue_gradient);
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    float: right;
+    width: 200px;
+    height: 50px;
+    margin: 10px 0px;
+    font: 700 20px var(--font_family);
+    letter-spacing: var(--letter_spacing_para);
+    text-align: center;}
+button.contactFormBtn:hover{
+    background: linear-gradient(to left bottom, rgba(45, 128, 236, 1) 10%, 60%, rgba(58, 209, 255, 1) 90%);
+    border: 3px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);}
+.form-control{
+    border: 2px solid transparent;}
+.form-control:hover{
+    border: 2px solid rgb(136, 253, 152);}
+
+/*Media Query for Tablets (768px)*/ 
+@media screen and (min-width: 768px){
+    p.homeHeaderName{font-size: var(--font_header);}
+    p.homeHeaderTitle{font-size: 36px;}
+    div.homeBlurb{font-size: 24px; top: 20px;}
+    div.projectHeader{padding: 50px 0px 60px 0px; font-size: 80px;}
+    p.projectBlurb{padding: 0px 160px; font-size: 24px;}
+    button.tableButton{border-radius: 30px; margin: 5px;}
+    div.aboutSectionHeader{padding: 20px 100px; text-align: left;}
+    p.projectPageSummary{padding: 0px 70px; font: 500 20px var(--font_family);}
+    div.aboutHeaderBlurb{font: 500 var(--font-large) var(--font_family);}
+    button.FluffButton{padding: 10px 40px;}
+    p.projectPageFluff{font: 500 20px var(--font_family)}
+}
+/*Media Query for big screens (992px)*/
+@media screen and (min-width: 992px){
+    p.homeHeaderName{font-size: 60px;}
+    p.homeHeaderTitle{font-size: var(--font-title);}
+    div.homeBlurb{top: 40px;}
+    span.mainContainer{top: 90px;};
+    div.homeHeader{padding-left: 20px;};
+    div.projectPage{padding: 20px 100px;};
+    div.aboutHeader{padding: 50px 100px 20px 100px;}
+    div.aboutHeaderBlurb{min-width: 600px;}
+    #aboutCourseTable{padding: 10px 50px; margin: 0px 70px;}
+    p.projectBlurb{padding: 0px 300px; font-size: 24px;}
+}
+/*Media Query for Comically big screens (1400px)*/ 
+@media screen and (min-width: 1400px){
+    div.projectPage{padding: 20px 150px;};
+}

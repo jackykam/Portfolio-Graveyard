@@ -1,0 +1,600 @@
+<!DOCTYPE HTML>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+    <style type="text/css">
+    /* ============ Priority Media Queries ============ */
+        @media all and (min-width: 768px) {
+	    .navbar .nav-item .dropdown-menu{ display: none; }
+	    .navbar .nav-item:hover .nav-link{   }
+	    .navbar .nav-item:hover .dropdown-menu{ display: block;}
+	    .navbar .nav-item .dropdown-menu{ margin-top:0;}}
+        @media all and (min-width: 992px){
+        .tableButton{min-width: min-content; max-width: min-content;};}
+    </style>
+    <link rel="stylesheet" href="style.css"> <!--CSS Sheet-->
+    <script src="script.js"></script>        <!--JS Sheet-->
+    <title>Portfolio - Jacky Kam</title>
+</head>
+<body onload="menuPage('homeSpan'), resetAll()">
+    <!--Preloader-->
+    <div class="preloader" id="preloader"></div>
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute" style="z-index: 10; width: 100%">
+        <div class="container-fluid">
+ 	        <a class="navbar-brand" style="padding-left: 30px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main_nav">
+	            <ul class="navbar-nav ms-auto">
+		            <li class="nav-item"><a class="nav-link" onclick="menuPage('homeSpan'), resetAll()"><img src="assets/icons/homeDrop.png" style="width: 48px; padding: 0px 10px 0px 10px;">Home</a></li>
+		            <li class="nav-item"><a class="nav-link" onclick="menuPage('projectSpan'), createTable('none'), resetAll()"><img src="assets/icons/gridDrop.png" style="width: 48px; padding: 0px 10px 0px 10px;">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="menuPage('aboutSpan'), resetAll()"><img src="assets/icons/contactDrop.png" style="width: 48px; padding: 0px 10px 0px 10px;">About</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="menuPage('contactSpan'), resetAll()"><img src="assets/icons/resumeDrop.png" style="width: 48px; padding: 0px 10px 0px 10px;">Contact</a></li>
+	            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Home page-->
+    <span class="mainContainer" id="homeSpan">
+        <!--Creates blur effect-->
+        <div class="mainContainer-bg"><div class="mainContainer-bg-darken"></div></div>
+        <!--Content-->
+        <div class="contentContainer">
+            <!--Profile Pic & Title-->
+            <div class="row flex-md-row-reverse justify-content-center" style="margin-top: 50px;">
+                <!--Shitty selfie-->
+                <img class="homeImage col-md-6" src="assets/selfie.jpg">
+                <!--Name & Title-->
+                <div class="homeHeader col-md-6 mt-auto pt-5">
+                    <p class="homeHeaderName align-bottom">Jacky Kam</p><br>
+                    <p class="homeHeaderTitle">UBC 2024 | Integrated Engineering</p>
+                </div>
+            </div>
+            <!--Some spiel-->
+            <div class="homeBlurb col-12">
+                <center>
+                    <text class="homeBlurbQuote">
+                        "A successful project cannot be defined by the actions of a sole individual. Instead it is the collaboration of a teams work ethic, 
+                        unique skillsets, and drive to achieve the impossible which culminate into something extraordinary"</text><br><br>
+                </center>
+                <text>&emsp;I am a designer, tinkerer, and gamer, with a drive for problem solving and finding innovative solutions to unique challenges. I 
+                    enjoy manufacturing, coding, CAD design, and any other opportunities to expand my breadth of knowledge and learn some new skills!<br><br>
+                    <center>Oh, and I'm a dark-elf monk in DnD (5e)</center> </text><br>
+                If you would like to check out some of my past & ongoing projects, click <text class="projectsLink" onclick="menuPage('projectSpan'), createTable('none')">here</text>.<br>
+            </div>
+            <!--Social Media (Check out YouTube project vids plz)-->
+            <div style="position:relative;top:100px;padding-bottom:60px;font-size:30px;color:rgb(255, 255, 255);">
+                <center><text>Media Links</text><br>
+                <text style="margin:10px;color:rgb(136, 253, 152); font-size: 24px;">jkam923@gmail.com</text>
+                <table>
+                    <tr>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconLinkedIn.png" onmouseover="mediaText('LinkedIn')" onmouseleave="mediaText('')" onclick="window.open('https://www.linkedin.com/in/jacky-kam-813075207/', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconGithub.png" onmouseover="mediaText('Github')" onmouseleave="mediaText('')" onclick="window.open('https://github.com/jackykam', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconFacebook.png" onmouseover="mediaText('Facebook')" onmouseleave="mediaText('')" onclick="window.open('https://www.facebook.com/profile.php?id=100006254537652', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconInstagram.png" onmouseover="mediaText('Instagram')" onmouseleave="mediaText('')" onclick="window.open('https://www.instagram.com/jacky.kam01?r=nametag', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconYoutube.png" onmouseover="mediaText('Youtube')" onmouseleave="mediaText('')" onclick="window.open('https://www.youtube.com/channel/UCChlkrTA0DMSS9GRHNfU7vA', '_newtab')"></td>
+                    </tr>
+                </table>
+                <div class="mediaText" id="mediaText"></div>
+                </center>
+            </div>
+        </div>
+    </span>
+
+    <!--Projects Main Page-->
+    <span class="mainContainer" id="projectSpan">
+        <!--Creates blur effect-->
+        <div class="mainContainer-bg"><div class="mainContainer-bg-darken"></div></div>
+        <!--Content-->
+        <div class="contentContainer" id="projectContainer">
+            <center>
+            <div class="contentHeader">My Projects</div>
+            <p class="projectBlurb">Below are some of my most notable recent works as well as some ongoing projects.
+                Each project has it's own bit of personality, and is fueled by sleep deprivation, university student 
+                anxiety, and litres of Red Bull. Click on any of them to learn more about the inner workings, 
+                as well as get a feel for some of the skills I have developed along the way!</p>
+            <!--Various keywords to sort projects by-->
+            <div class="tableButtons row col-12 flex-lg-rowmx-auto">
+                <text class="col-md-3 col-lg-2" style="font-size: 30px; font-weight:bold; padding-right: 0px;">Sort By:</text>
+                <button class="tableButton col-md-3 col-lg-1" onclick="createTable('none')">All</button>
+                <button class="tableButton col-md-3 col-lg-1" onclick="createTable('coding')">Coding</button>
+                <button class="tableButton col-md-3 col-lg-2" onclick="createTable('design')">Design</button>
+                <button class="tableButton col-md-4 col-lg-2" onclick="createTable('fabrication')">Fabrication</button>
+                <button class="tableButton col-md-3 col-lg-2" onclick="createTable('ongoing')">Ongoing</button>
+            </div>
+            <!--Table to contain all the projects-->
+                <!--Content auto fills from script.js-->
+            <div class="row justify-content-center" id="tableContainer" style="padding:10px 0px;"></div>
+            </center>
+            <button class="backToTop" onclick="toTop(this)">Back to top :)</button>
+        </div>
+
+        <!--Div containing all the various project pages-->
+        <span class="projectPageContainer" id="projectPageContainer">
+            <!--Content-->
+            <!--JSGAME-->
+            <div class="projectPage" id="projectPage1">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project1-jsgame/banner.png"></div>
+                <div class="projectPageTags" id="tagTable1"></div>
+                <p class="projectPageTitle">Javascript Game</p>
+                <p class="projectPageSummary">For a highschool introduction to information technology, 
+                    our class was tasked with developing an application or game through a means of our choice. 
+                    A friend and I opted to create a combat based RPG inspired by the whimsical 
+                    nature of games such as <i>West of Loathing</i>. A majority of the game was designed using HTML, 
+                    CSS, and JavaScript, with character stats and inventory saved and loaded via PHP.<br><br>
+                    This was my first introduction into coding, so many challenges arose when working with PHP and JavaScript 
+                    such as character data transfer and decision trees. We also had to learn about the use of objects in order 
+                    to create a flexible and scalable combat system without hard-coding a multitude of cases or if-statements. 
+                    The use of object properties allowed for easy indexing and avoided any confusion of multi-dimensional arrays, 
+                    all while remaining easy to parse.<br><br>
+                    By the end of the term, I developed an understanding of the coding fundamentals, and was introduced 
+                    to object-oriented programming. The result was a turn-based combat RPG with class selection, a 
+                    currency/market system, and of course, silly dialogue. Not much a game to take itself too seriously, the 
+                    creative freedom involved in designing such a project helped spark my passion for game design and scripting.</p>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project1-jsgame/0-Character.png">
+                        <div class="overlay">First character: <i>Cowboy Don</i>. All characters, enemies, and screens were hand-drawn.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project1-jsgame/1-Enemies.png">
+                        <div class="overlay">Example of some of the enemy objects' stats and attacks.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project1-jsgame/2-Screen_Char.png">
+                        <div class="overlay">The first mock-up of the character selection screen with variable stats.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project1-jsgame/3-Screen_Combat.png">
+                        <div class="overlay">The combat screen displaying player attacks and descriptions. Missing are enemy sprites.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project1-jsgame/4-Screen_Shop.png">
+                        <div class="overlay">The shop screen where the player could purchase or sell wares.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop1" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+            <!--SHIELD-->
+            <div class="projectPage" id="projectPage2">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project2-shield/banner.png"></div>
+                <div class="projectPageTags" id="tagTable2"></div>
+                <p class="projectPageTitle">Metalwork Shield</p>
+                <p class="projectPageSummary">Metalwork has always been a huge passion of mine, and served as an excellent medium 
+                    to express creative freedom. This has allowed me to learn the various shop machines as well as proper design 
+                    methods and welding. This project was a design piece for my senior year in our high-school automotive shop. A 
+                    friend and I opted to create a wearable replica of the Wakandan Shield given to Captain America in 
+                    <a href="https://marvelcinematicuniverse.fandom.com/wiki/Avengers:_Infinity_War" target="blank">Avengers: Infinity War</a>. <br><br>
+                    We created stencils first from paper for shape, then cardboard for fit and feel, before transferring over to 
+                    20-gauge sheet metal. Due to the thickness of the metal, we were unable to directly spot weld the sheets, which 
+                    lead to the opportunity to use a variety of sheet metal tools. Crimpers helped create tapered curvature, while 
+                    flanging and punches allowed us to get parallel sheets flush enough to MIG weld. This project really helped 
+                    establish many of the first steps into manufacturing, providing skills in welding and the various shop tools 
+                    alongside the design process.
+                </p>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project2-shield/0-papercuts.jpg">
+                        <div class="overlay">Initial cuts were made on paper to determine the final size.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project2-shield/1-cardboardcuts.jpg">
+                        <div class="overlay">A mockup was created from cardboard to test form factor and feel in the hands.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project2-shield/2-shield0.jpg">
+                        <div class="overlay">The initial construction of the shield with some spot and MIG welds in place.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project2-shield/3-shield1.jpg">
+                        <div class="overlay">The completed shield after polishing and a coat of paint to prevent rust.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project2-shield/4-shield2.jpg">
+                        <div class="overlay">Padding was added for comfort, with a handle for grip, and a belt to secure the forearm.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop2" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+            <!--CADCHAIN-->
+            <div class="projectPage" id="projectPage3">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project3-keychain/banner.png"></div>
+                <div class="projectPageTags" id="tagTable3"></div>
+                <p class="projectPageTitle">CAD Keychain</p>
+                <p class="projectPageSummary">Our introduction to Computer Aided Design was a competition among first year engineering 
+                    students to design a small keychain. I designed a rectangular fidget toy comprised of two clamshell halves which 
+                    would house rotatable gears. The separate parts were modelled in the OnShape CAD program. <br><br>
+                    This was my first experience designing a printable part in a proper CAD program, and required that I learn the 
+                    conventions of proper design etiquette. Designing for manufacturing meant thinking about the orientation each 
+                    component could be printed in, as well as how they would fit together to allow for movement. Furthermore, 
+                    understanding of the material from which the part would be printed determined the thicknesses and allowable 
+                    tolerances for each part. <br><br>
+                    This model would be voted for Top 10 Designs among a group of 800+ peers. <br>
+                    Link to the model can be found 
+                    <a href="https://cad.onshape.com/documents/f90e076882a19c71c9176ae6/w/0ba83fe432878bb8b5bf7bbf/e/ddd1531adbbb65ad260fbb7d?renderMode=0&uiState=628b375a2e97426b3e8e9ceb" target="blank">here</a>
+                </p>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project3-keychain/0-top_designs.png">
+                        <div class="overlay">The Top 10 Designs as determined by vote.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project3-keychain/1-keychain_sketch.png">
+                        <div class="overlay">The sketch for the keychain.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project3-keychain/2-keychain_print.jpg">
+                        <div class="overlay">The finalized print of the keychain was done as one piece to save on time.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop3" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+            <!--LINEBOT-->
+            <div class="projectPage" id="projectPage4">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project4-linebot/banner.png"></div>
+                <div class="projectPageTags" id="tagTable4"></div>
+                <p class="projectPageTitle">Line-Following Robot</p>
+                <p class="projectPageSummary">This introductory second-year project combined microcontrollers and basic robotics 
+                    to create a car which could track a black line on a sheet of paper. IR sensors mounted on the underside of 
+                    the robot detect the line below, and an Arduino Uno processes the sensor data before deciding how to proceed. 
+                    The robot is capable of traversing sharp turns, crossroads, and even small gaps in the path based on contextual 
+                    inference. Much optimization went into the code to minimize the computation needed for a given logic cycle, 
+                    which would reduce the overall time required to complete a given course. <br><br>
+                    Alongside the controls engineering aspect, this was an engaging design introduction to the multidisciplinary 
+                    nature of the Integrated Engineering program, combining software, electronics, and some product design. The 
+                    finalized robot was able to complete 95% of the given courses, with a completion time of just under 60 seconds.
+                </p>
+                <p class="projectPageFluff">You can view the detailed description sheet I wrote for the project as a pdf <a href="assets/project4-linebot/LineFollowerDescSheet.pdf" target="blank">here</a>.</p>
+                <p class="projectPageFluff">Or view the project code on GitHub <a href="https://github.com/jackykam/Line_Follower_Bot" target="blank">here</a></p>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project4-linebot/0-sensor_bracket.jpg">
+                        <div class="overlay">The sensor bracket containing 5 IR sensors.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project4-linebot/1-bot_bot.jpg">
+                        <div class="overlay">The bottom of the robot with the sensor bracket mounted, and an on/off switch.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project4-linebot/2-bot_top.jpg">
+                        <div class="overlay">An overhead view of the wiring for each sensor and the microcontroller.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project4-linebot/3-bot_side.jpg">
+                        <div class="overlay">Components were mounted on two levels of the robot for ease of access.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project4-linebot/4-bot_body.jpg">
+                        <div class="overlay">The completed view of the bot in its glory.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop4" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+            <!--AUDIOGLOVE-->
+            <div class="projectPage" id="projectPage5">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project5-audioglove/banner.png"></div>
+                <div class="projectPageTags" id="tagTable5"></div>
+                <p class="projectPageTitle">Audio Synth Glove</p>
+                <p class="projectPageSummary">A second year capstone project, my team and I wanted to place a unique spin on modern 
+                    audio synthesizers by designing a glove to translate user hand gestures into music. An 
+                    <a href="https://www.espressif.com/en/products/socs/esp32" target="blank">ESP32</a> microcontroller communicated 
+                    sensor data over WiFi to a user interface, using the user's existing IP address to host a webserver. I was the 
+                    software lead for the team, tasked with creating a wiring schematic of the microcontroller, obtaining sensor values 
+                    and relaying them from the microcontroller to the computer, before displaying the information through a UI. The UI 
+                    was designed using HTML, CSS, and JavaScript, with the microcontroller coded in the Arduino IDE. <br><br>
+                    This being my first time working with wireless communication capable microcontrollers, I hit a major roadblock when attempting to 
+                    communicate with the computer. Initial plans were to use Bluetooth BLE, which was later scrapped due to its shorter 
+                    effective range and latency issues. Furthermore, we encountered several issues with sensor calibration which led to 
+                    drifting sensor output and inaccuracies. This was eventually addressed by constraining the sensors using 3D printed 
+                    enclosures, and implementing threshold values to help filter out extraneous noise. <br><br>
+                    Our final product incorporated flex sensors to adjust the audio pitch, tone, and volume values, while incorporating basic gestures 
+                    such as swipe and push to jump between tracks. This was a multidisciplinary project combining 3D modelling with electronics
+                    and software to create a cohesive and working prototype. <br><br>
+                    Our project went on to win first place in the Second-Year IGEN Design Award, which is determined by the voting of the second, 
+                    third, and fourth-year IGEN students (Monetary value $150 per person, $900 total).
+                </p>
+                <p class="projectPageFluff">You can find the original product video <a href="https://youtu.be/hApUgnpcBEA" target="_blank">here</a></p>
+                <p class="projectPageFluff">As well you can find the code for the user interface and the ESP32 module <a href="https://github.com/jackykam/Audio_Synthesizer_Glove" target="blank">here</a>.</p>
+                <button class="FluffButton" onclick="collapseMe('proj5Collapse')">Github Notes</button>
+                    <div class="FluffDropdown" id="proj5Collapse">
+                        -The web page files/assets must be saved in a folder called 'data' separate from the Arduino file as the interface will be pulled from here.<br>
+                        -In the .ino file, the network name and password will need to be provided for the web-server hosting.<br>
+                        -The UI assets must all be saved on the top level of the folder (no sub-folders can be used).<br>
+                        -As the glove isn't included (obviously), the interface has been provided with sliders for user interaction.
+                    </div>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project5-audioglove/0-Clem.jpg">
+                        <div class="overlay">Our primary stakeholder with the glove.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project5-audioglove/2-Glov_Draw.jpg">
+                        <div class="overlay">My two initial glove concept sketches.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project5-audioglove/3-Circuit.png">
+                        <div class="overlay">The finalized schematic of the electronics.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project5-audioglove/1.5-Glov2.jpg">
+                        <div class="overlay">The first mock-up for the project.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project5-audioglove/1-Glov1.jpg">
+                        <div class="overlay">Birds-eye view of all glove components.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project5-audioglove/4-Interface.png">
+                        <div class="overlay">The interactable user interface.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop5" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+            <!--SHAKYGLOVE-->
+            <div class="projectPage" id="projectPage6">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project6-tremorglove/banner.png"></div>
+                <div class="projectPageTags" id="tagTable6"></div>
+                <p class="projectPageTitle">Tremor Stabilization Glove</p>
+                <p class="projectPageSummary">
+                    Working alongside 5 interdisciplinary students, our third year project was a wearable device capable of dampening 
+                    Essential Tremor in the hands. We used a combination of accelerometer, gyrometer, and electromyography (EMG) 
+                    sensors to record user hand motion. A motorized flywheel induces gyroscopic stabilization to counteract tremor
+                    amplitude, while a machine learning algorithm discerns between a hand tremor and voluntary motion. I 
+                    took on the role of team lead, monitoring all aspects of the project from budget, to mechanical design, and 
+                    electrical integration.<br><br>
+                    Due to the oscillatory nature of Essential Tremor, careful thought and consideration was required to choose a motor 
+                    with a high rpm and torque, while maintaining low profile and power draw. As for data collection, our initial algorithm 
+                    had difficulties correlating sensor data with the occurrence of tremor (accuracy ~60%). To achieve higher accuracy, we 
+                    tested dozens of neural net models, tinkering with loss functions and number of layers to achieve an accuracy of ~90%.<br><br>
+                    There is still much to learn in applying machine learning, which is partially limited to the quantity and quality 
+                    of available sample data. Regardless, this was an excellent opportunity for me to apply my leadership, hands-on, and 
+                    software skills into a project which produced a applicable final result.<br><br>
+                    Our project went on to win first place in the Third-Year IGEN Design Award, which is determined by the voting of the 
+                    general public, as well as second, third, and fourth-year IGEN students (Monetary value $175 per person, $1050 total).
+                </p>
+                <p class="projectPageFluff">You can find the original product video <a href="https://youtu.be/HcJnobrRVZk" target="_blank">here</a>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/0-Jack.jpg">
+                        <div class="overlay">Myself wearing the tremor glove.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/1-Glov_Draw.png">
+                        <div class="overlay">My initial sketch of the glove.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/2-Enclosure.png">
+                        <div class="overlay">The enclosure creation process.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/3-PCB.jpg">
+                        <div class="overlay">The custom PCB relaying sensor data.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/4-Wiring.jpg">
+                        <div class="overlay">The layout of the completed glove.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/5-Glov_Complete.jpg">
+                        <div class="overlay">The powered gloves with electronics and lights on.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/6-Test_Stand.jpg">
+                        <div class="overlay">A test stand was used to test validity and safety of the project.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%;" src="assets/project6-tremorglove/7-Test_Platform.jpg">
+                        <div class="overlay">The platform allows us to emulate hand tremor and motor response.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop6" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+            <!--ATAKSAK2022-->
+            <div class="projectPage" id="projectPage7">
+                <div class="projectPageBanner"><img class="projectPageBanner" src="assets/project7-uas2022/banner.png"></div>
+                <div class="projectPageTags" id="tagTable7"></div>
+                <p class="projectPageTitle">Drone Claw Assembly</p>
+                <p class="projectPageSummary">As a mechanical designer and integration specialist for the UBC UAS design team, 
+                    I aided in the design, fabrication, and implementation of a claw system for retrieving packages. This system 
+                    utilized a pair of linear actuators to clamp the payload, as well as a swiveling plate to cradle the object 
+                    once it was lifted off the ground. Simultaneously, I worked with another member of the team manufacturing and 
+                    assembling a set of landing gear for the drone, which would allow it to safely land and maneuver up to the package. <br><br>
+                    We faced a multitude of issues during the integration process, as the coordination of many moving parts would 
+                    prove difficult, which was compounded by a weight budget requiring further simplification. This was addressed 
+                    by using waterjet cut aluminum plates to form the landing gear, which reduced on weight while remaining stable, and 
+                    redesigning the claw mechanism to not require additional electronics to cradle the object. <br><br>
+                    This project was an incredible opportunity to expand my knowledge about mechatronics; enhancing my knowledge in SolidWorks, 
+                    as well as working with more complex manufacturing methods including the waterjet machine and laser cutter. Despite 
+                    a tight timeline, I was able to apply my skills and help reduce manufacturing and assembly times of over 80 aluminum 
+                    and sheet metal parts.
+                </p>
+                <div class="projectPagePictures row justify-content-center">
+                    <div class="projectPagePicture col-xs-12 col-sm-6 ">
+                        <img style="width: 100%; height: 100%" src="assets/project7-uas2022/0-Ataksak.jpg">
+                        <div class="overlay">Landing gear fitted to <i>Ataksak.</i></div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6">
+                        <img style="width: 100%; height: 100%" src="assets/project7-uas2022/1-Claw_Render.png">
+                        <div class="overlay">Initial SolidWorks model of the claw.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6">
+                        <img style="width: 100%; height: 100%" src="assets/project7-uas2022/2-Claw_Real.jpg">
+                        <div class="overlay">The 3D printed claw with electronics.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6">
+                        <img style="width: 100%; height: 100%" src="assets/project7-uas2022/3-Landing_Alum.jpg">
+                        <div class="overlay">Aluminum landing gear brackets.</div>
+                    </div>
+                    <div class="projectPagePicture col-xs-12 col-sm-6">
+                        <img style="width: 100%; height: 100%" src="assets/project7-uas2022/4-Landing_Assem.png">
+                        <div class="overlay">Finalized landing gear assembly.</div>
+                    </div>
+                </div>
+                <img class="toTopButton" id="toTop7" src="assets/icons/toTop.png" onclick="toTop(this)">
+            </div>
+        </span>
+    </span>
+
+    <!--About Page-->
+    <span class="mainContainer" id="aboutSpan">
+        <!--Creates blur effect-->
+        <div class="mainContainer-bg"><div class="mainContainer-bg-darken"></div></div>
+        <!--Content-->
+        <div class="contentContainer">
+            <div class="contentHeader">About Me</div>
+            <!--Beauty screenshot of some dude lookin fly-->
+            <div class="aboutHeader row justify-content-center">
+                <div class="aboutHeaderPic col-sm-12 col-md-12 col-lg-5"><img src="assets/IMG_20220407_131554.jpg" style="width: 100%; height: 100%;"></div>
+                <div class="aboutHeaderBlurb col-sm-12 col-md-12 col-lg-7">I am an Integrated Engineering student at the University of British Columbia 
+                    with a passion for Mechanical and Computer Engineering. I am currently interested in mechanical /web 
+                    design, product development, manufacturing and mechatronics.<br><br>
+                    Studying aside, I also enjoy video games, guitar, calisthenics, swimming, and meeting new faces!
+                </div>
+            </div>
+            <!--Some filler stuff about me-->
+            <div class="aboutSectionHeader">A Brief History</div>
+            <div class="row justify-content-center" style="padding: 0px 20px;">
+                <div class="col-sm-12 col-md-12 col-lg-4"><p class="aboutHistoryCard">Since my youth, i've been inquisitive by nature (much to the dismay of my parents), 
+                    taking apart electronics and other gadgets to see how the parts interact and how they could be applied in a different context. I found 
+                    the world of mechanical design, physical modelling, and software to be fascinating, and hopped on any opportunity to learn just 
+                    a little more every day.</p></div>
+                <div class="col-sm-12 col-md-12 col-lg-4"><p class="aboutHistoryCard">High school was where I hit my stride, being exposed to a plethora of technical 
+                    skills and experiences. Through our info tech courses I was introduced to web design with HTML and JavaScript, while theatre 
+                    production allowed me to experiment with carpentry alongside audio and lighting tech. Lastly our automotive shop was where I 
+                    would learn the ropes of metalwork, welding, and manufacturing tools, alongside vehicle mechanics. Each opportunity more captivating 
+                    than the last, this was what truly cemented my decision to pursue a degree in engineering.</p></div>
+                <div class="col-sm-12 col-md-12 col-lg-4"><p class="aboutHistoryCard">Moving onto university saw a transition from shop tools and writing simple code in a 
+                    notepad file to CNC, 3D printing, CAD and microcontrollers, yet the wonder and amusement of creating something from scratch remains 
+                    the same. Through student design teams and project courses, I have been able to expand on the various skills built throughout the 
+                    years, and test the knowledge I had gained in unique and applicable ways. The satisfaction of a completed project is almost an 
+                    addiction, and I will continue to pursue more challenging ventures in the future.</p></div>
+            </div>
+            <!--Dropdown section to include courses-->
+            <div class="aboutSectionHeader">Relevant Courses</div>
+            <button class="FluffButton" id="courseTableButton" onclick="collapseMe('aboutCourseTable')"><img style="width: 48px; height: 48px; margin-right: 20px;" id="courseDrop" src="assets/icons/dropDown.png"><text id="courseText">Expand Course Table</button>
+            <div class="FluffDropdown row" id="aboutCourseTable">
+                <div class="col-sm-12 col-lg-6">
+                    <table class="courseTable">
+                        <tr><td><b>Year 1</b></td></tr>
+                        <tr><td>APSC 100</td><td>Introduction to Engineering I</td></tr>
+                        <tr><td>APSC 101</td><td>Introduction to Engineering II</td></tr>
+                        <tr><td>APSC 160</td><td>Introduction to Computation in Engineering Design</td></tr>
+                        <tr><td>CHEM 154 </td><td> Chemistry for Engineering</td></tr>
+                        <tr><td>MATH 100</td><td>Differential Calculus with Applications</td></tr>
+                        <tr><td>MATH 101</td><td>Integral Calculus with Applications</td></tr>
+                        <tr><td>MATH 152</td><td>Linear Systems</td></tr>
+                        <tr><td>PHYS 157</td><td>Introductory Physics for Engineers I</td></tr>
+                        <tr><td>PHYS 158</td><td>Introductory Physics for Engineers II</td></tr>
+                        <tr><td>PHYS 159</td><td>Introductory Physics Laboratory for Engineers</td></tr>
+                        <tr><td>PHYS 170</td><td>Mechanics I</td></tr>
+                        <tr><td>PSYC 101</td><td>Introduction to Biological and Cognitive Psychology</td></tr>
+                    </table>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <table class="courseTable">
+                        <tr><td><b>Year 2</b></td></tr>
+                        <tr><td>APSC 278</td><td>Engineering Materials</td></tr>
+                        <tr><td>APSC 279</td><td>Engineering Materials Laboratory</td></tr>
+                        <tr><td>CHBE 241</td><td>Material and Energy Balances</td></tr>
+                        <tr><td>CHBE 244</td><td>Chemical and Biological Engineering Thermodynamics I</td></tr>
+                        <tr><td>CIVL 215</td><td>Fluid Mechanics I</td></tr>
+                        <tr><td>CPEN 312</td><td>Digital Systems and Microcomputers</td></tr>
+                        <tr><td>ELEC 204</td><td>Linear Circuits</td></tr>
+                        <tr><td>ELEC 205</td><td>Electronics Laboratory</td></tr>
+                        <tr><td>IGEN 201</td><td>Integrated Technical Communication</td></tr>
+                        <tr><td>MATH 253</td><td>Multivariable Calculus</td></tr>
+                        <tr><td>MATH 255</td><td>Ordinary Differential Equations</td></tr>
+                        <tr><td>MECH 260</td><td>Introduction to Mechanics of Materials</td></tr>
+                        <tr><td>IGEN 230</td><td>Introduction to Engineering Design</td></tr>
+                    </table>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <table class="courseTable">
+                        <tr><td><b>Year 3</b></td></tr>
+                        <tr><td>CHBE 344</td><td>Introduction to Unit Operations</td></tr>
+                        <tr><td>CHBE 459</td><td>Chemical and Biological Engineering Economics</td></tr>
+                        <tr><td>COMM 280</td><td>Entrepreneurship</td></tr>
+                        <tr><td>DES  130</td><td>Design, Culture and Ecology</td></tr>
+                        <tr><td>ELEC 341</td><td>Systems and Control</td></tr>
+                        <tr><td>ELEC 344</td><td>Applied Electronics and Electromechanics</td></tr>
+                        <tr><td>MECH 329</td><td>Materials for Mechanical Design</td></tr>
+                        <tr><td>MECH 360</td><td>Mechanics of Materials</td></tr>
+                        <tr><td>MECH 375</td><td>Heat Transfer</td></tr>
+                        <tr><td>MTRL 280</td><td>Materials in Design</td></tr>
+                        <tr><td>STAT 251</td><td>Elementary Statistics</td></tr>
+                        <tr><td>IGEN 330</td><td>Intermediate Engineering Design</td></tr>
+                    </table>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <table class="courseTable">
+                        <tr><td><b>Year 4</b></td><td>(Proposed)</td></tr>
+                        <tr><td>APSC 450</td><td>Professional Engineering Practice</td></tr>
+                        <tr><td>CIVL 305</td><td>Introduction to Environmental Engineering Applications</td></tr>
+                        <tr><td>CPEN 223</td><td>Software Design for Engineers</td></tr>
+                        <tr><td>CPEN 411</td><td>Digital Systems Design</td></tr>
+                        <tr><td>CPEN 411</td><td>Computer Architecture</td></tr>
+                        <tr><td>MECH 325</td><td>Machine Design</td></tr>
+                        <tr><td>MECH 463</td><td>Mechanical Vibrations</td></tr>
+                        <tr><td>MTRL 340</td><td>Manufacturing in Materials Engineering</td></tr>
+                        <tr><td>IGEN 430</td><td>Advanced Engineering Design Projects</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <!--Contact Info Page-->
+    <span class="mainContainer" id="contactSpan">
+        <!--Creates blur effect-->
+        <div class="mainContainer-bg"><div class="mainContainer-bg-darken"></div></div>
+        <!--Content-->
+        <div class="contentContainer">
+            <div class="contentHeader">Contact Me</div>
+            <div class="contactContainer row">
+                <div class="contactDetails col-lg-5">
+                    <p class="contactDetailsHeader">Lets get in touch!</p>
+                    <center>
+                        <p style="padding: 20px 0px; font-size: 36px; max-width: fit-content; color: rgb(255, 255, 255); cursor: pointer;" id="contactResume" onmouseover="resumeHover()" onmouseout="resumeHover()" onclick="window.open('assets/Resume_JK.pdf')">
+                            Resume<img style="margin-left: 10px; width: 50px; height: 50px;" id="contactResumePic" src="assets/icons/downloadIcon1.png">
+                        </p>
+                    </center>
+                        <p style="padding: 0px 50px; margin: 0px;"><img style="margin-right: 10px;" src="assets/icons/phoneIcon.png">+1(604)-716-7227</p>
+                        <p style="padding: 0px 50px; margin: 0px;"><img style="margin-right: 10px;" src="assets/icons/mailIcon.png">jkam923@gmail.com</p>
+                    <center>
+                        <table style="margin: 50px 0px;">
+                            <tr>
+                                <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconLinkedIn.png" onclick="window.open('https://www.linkedin.com/in/jacky-kam-813075207/', '_newtab')"></td>
+                                <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconGithub.png" onclick="window.open('https://github.com/jackykam', '_newtab')"></td>
+                                <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconFacebook.png" onclick="window.open('https://www.facebook.com/profile.php?id=100006254537652', '_newtab')"></td>
+                                <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconInstagram.png" onclick="window.open('https://www.instagram.com/jacky.kam01?r=nametag', '_newtab')"></td>
+                                <td style="padding: 5px;"><img class="mediaIcon" src="assets/icons/iconYoutube.png" onclick="window.open('https://www.youtube.com/channel/UCChlkrTA0DMSS9GRHNfU7vA', '_newtab')"></td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+                <div class="contactForm col-lg-7">
+                    <p class="contactFormHeader">Or message me here!</p>
+                    <div style="position: relative; margin: 30px 20px;">
+                        <form target="_blank" action="https://formsubmit.co/jkam923@gmail.com" method="POST">
+                            <div class="row" style="margin-bottom: 10px;">
+                                <div class="col-md-5" style="margin-bottom: 10px;"><input type="text" name="Sender Name" class="form-control" placeholder="Full Name" required></div>
+                                <div class="col-md-7" style="margin-bottom: 10px;"><input type="email" name="Sender Email:" class="form-control" placeholder="Email Address" required></div>
+                                <div class="col-md-12"><input type="text" name="_subject" class="form-control" placeholder="Subject Line"></div>
+                            </div>
+                            <textarea placeholder="Your Message" class="form-control" name="Message" rows="10" required></textarea>
+                            <button type="submit" class="contactFormBtn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+</body>
+</html>
