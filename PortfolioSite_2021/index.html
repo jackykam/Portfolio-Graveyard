@@ -1,0 +1,1496 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+    <style type="text/css">
+    /* ============ desktop view ============ */
+    @media all and (min-width: 992px) {
+	    .navbar .nav-item .dropdown-menu{ display: none; }
+	    .navbar .nav-item:hover .nav-link{   }
+	    .navbar .nav-item:hover .dropdown-menu{ display: block; }
+	    .navbar .nav-item .dropdown-menu{ margin-top:0; }
+    }	
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body background="Assets/background.jpg" style="overflow: visible;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-absolute" style="z-index: 1; width: 100%">
+        <div class="container-fluid">
+ 	        <a class="navbar-brand" style="padding-left: 30px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main_nav">
+	            <ul class="navbar-nav ms-auto">
+		            <li class="nav-item"><a class="nav-link" onclick="menuPage('homeSpan')"><img src="Assets/icons/homeDrop.png" style="width: 48px; padding-right: 10px;">  Home</a></li>
+		            <li class="nav-item"><a class="nav-link" onclick="menuPage('projectSpan'), createTable(0)"><img src="Assets/icons/gridDrop.png" style="width: 48px; padding-right: 10px;">  Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="menuPage('contactSpan')"><img src="Assets/icons/contactDrop.png" style="width: 48px; padding-right: 10px;">   About</a></li>
+	            </ul>
+            </div>
+        </div>
+    </nav>
+    <!--==================================================================================================================================================-->
+    <span class="mainContainer w-100 h-100">
+        <!-------Home Page------->
+        <span class="menuSpan" id="homeSpan" style="display:block;">
+            <div class="row flex-md-row-reverse justify-content-center">
+                <img class="homeImage col-md-6" src="Assets/selfie.jpg">
+                <div class="col-md-6 mt-auto pt-5">
+                    <text class="homeHeaderName align-bottom">Jacky Kam</text><br>
+                    <text class="homeHeaderTitle">UBC 2024 | Integrated Engineering</text>
+                </div>
+            </div>
+            <div class="homeBlurb col-12 mt-sm-4 mt-md-2 text-justify-center">
+                &emsp; Hi there! my name is Jacky Kam. I am a student at the University of British Columbia currently studying Integrated Engineering.<br><br>
+                &emsp;I enjoy designing, coding, and making projects as struggling to find creative and innovative solutions always drives me to expand my general knowledge and learn new skills!
+                Some of my interests include mechanical design, mobile/web software development, and robotics. Currently, I am learning Python and applying that for future Machine Learning projects.<br><br>
+                &emsp;If you would like to check out some of my past & ongoing projects, click <text class="projectsLink" onclick="menuPage('projectSpan'), createTable(0)">here</text>.<br>
+            </div>
+            <div class="contact" style="position:relative;top:80px;padding-bottom:50px;font-size:30px;color:white;">
+                <center><text>Contact Me!</text><br>
+                <text style="margin:10px;color:rgb(136, 253, 152); font-size: 24px;">jkam923@gmail.com</text>
+                <table>
+                    <tr>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="Assets/icons/iconLinkedIn.png" onclick="window.open('https://www.linkedin.com/in/jacky-kam-813075207/', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="Assets/icons/iconFacebook.png" onclick="window.open('https://www.facebook.com/profile.php?id=100006254537652', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="Assets/icons/iconInstagram.png" onclick="window.open('https://www.instagram.com/jacky.kam01?r=nametag', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="Assets/icons/iconGithub.png" onclick="window.open('https://github.com/jackykam', '_newtab')"></td>
+                        <td style="padding: 5px;"><img class="mediaIcon" src="Assets/icons/iconYoutube.png" onclick="window.open('https://www.youtube.com/channel/UCChlkrTA0DMSS9GRHNfU7vA', '_newtab')"></td>
+                    </tr>
+                </table>
+                </center>
+            </div>
+        </span>
+        <!-------About me page-------->
+        <span class="menuSpan" id="contactSpan">
+            ABOUT
+        </span>
+
+        <!-------Project Table Page------->
+        <span class="menuSpan" id="projectSpan">
+            <text class="projectText col-12">My Projects</text>
+            <div class="row col-12 flex-lg-row position-relative mx-auto" style="top: 20%;">
+                <button class="sortingButton col-sm-2 offset-sm-1" onclick="createTable(0)"><text class="sortText">All Completed</text></button>
+                <button class="sortingButton col-sm-2" onclick="createTable(1)"><text class="sortText">Drafting</text></button>
+                <button class="sortingButton col-sm-2" onclick="createTable(2)"><text class="sortText">Physical</text></button>
+                <button class="sortingButton col-sm-2" onclick="createTable(3)"><text class="sortText">Software</text></button>
+                <button class="sortingButton col-sm-2" onclick="ongoingTable()"><text class="sortText">Ongoing</text></button>
+            </div>
+            <div class="projectTable position-relative" id="projectTable"></div>
+            
+        </span>
+
+        <!-------Project Description Page------->
+        <span class="menuSpan" id="projectMain">
+            <!--Banner section for each project-->
+            <div class="jumbotron container-fluid">
+                <img class="banner" id="banner">
+                <div class="row w-100 h-100" style="position: absolute; background-color: rgba(0, 0, 0, 0.507); left: 0px; right: 0px; margin: auto; overflow: hidden;">
+                    <div class="col-md-7" id="projectTitle" style="position: relative;padding: 10vh 40px 0px 20px;">
+                        <text id="bannerTitle"></text>
+                        <text id="bannerClassifier"></text>
+                    </div>
+                    <div class="col-md-5" style="position: relative;padding: 70px 40px 0px 20px;">
+                        <text id="bannerDate"></text>
+                    </div>
+                </div>
+            </div>
+            <img src="Assets/icons/menuClose.png" class="closeButton" onclick="closeAll()">
+        <!--==================================================================================================================================================-->
+            <!--Project 1: Sumobot-->
+            <div class="projectMain w-100" id="projectMain1">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 1)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 1)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 1)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview1" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar1">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical1">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical1">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software1">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7"> Sumobot competitions typically feature robots (either player or autonomously controlled) aiming to push the opponent out of a designated ring. Designs are usually within given limits for weight, size, etc.</p>
+                        </div>
+                        <p class="overviewTextFiller">The sumobot chassis is created from 20-gauge sheet metal, mounted onto a provided robot body. Components are soldered to a wired controller using metal tabs to control forward / reverse direction of the wheels. The bot can be powered by an external power source wired to the controller, or rechargeable batteries.<br><br> Note: Original design had a hinged triangular plow which could drop down to extend push range while remaining in size restrictions.</p>
+                        
+                        <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj1/sumobot1.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Front of the robot.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj1/sumobot2.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Rear of the robot.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj1/sumobot3.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Overhead view of the robot.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails1" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements:</text>
+                                <ul class="detailList">
+                                    <li>Fits within a 12cm x 12cm x 12cm space.</li>
+                                    <li>Maximum weight of 500g.</li>
+                                    <li>Chassis designed by parts available in the metalwork shop.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details:</text>
+                                <ul class="detailList">
+                                    <li>Created from 20-Gauge Steel.<br>
+                                        -Body cut to form, bent and MIG welded.</li>
+                                    <li>Front plow was originally a 6cm pyramidal plow mounted to the front by a hinge, allowing for bot to remain within restricted dimensions.<br>
+                                        -Plow would drop upon bot movement, allowing hands-free deployment.<br>
+                                        -Ramp shape would aid in flipping opponents sideways.</li>
+                                    <li>Rear plow mounted closer to the wheels for increased power.<br>
+                                        -Allows for viable reverse controlling, covering an additional angle of attack.</li>
+                                    <li>Wheel guards created to avoid opponent plates from getting underneath.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <text style="font-size: 32px;">Details of note:</text>
+                        <ul class="detailList" style="width:80%;min-width:300px;max-width:1000px;">
+                            <li>Sumobot won the competition between 60 participants in best-of-3 tournament style matchups.</li>
+                            <li>Awarded Top Design by peers.</li>
+                        </ul>
+                    </div>
+                    <div id="descMaterials1" style="display: none;">
+                        <div class="matRowContainer">
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj1/gearbox.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.pololu.com/product/114" target="blank">Gearbox</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Powered by an external source, this adjustable gearbox can be assembled with different gear ratios at the trade-off of power or speed.</div>
+                            </div>
+                            <div class="row w-100 position:relative;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj1/sheet.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    Weldable Steel Sheet: 20 Gauge</div>
+
+                                <div style="height:auto;padding-top: 16px;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Cold-Rolled Steel sheet metal. Pretty self-explanatory.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Project 2: JavaScript-->
+            <div class="projectMain w-100" id="projectMain2">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 2)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 2)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 2)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview2" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;"  id="skillBar2">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical2">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical2">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software2">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">One of the main three languages for beginners learning web development alongside HTML and CSS. JavaScript allows web-pages to be interactive -taking user input and executing actions in response to engage the audience.</p>
+                        </div>
+                        <p class="overviewTextFiller">This high-school game was my inital dive into coding. The goal was to create an adventure game with turn-based combat, in line with RPGs such as Pokemon, Final Fantasy, etc. 
+                            The gameplay was point-and-click, with players being able to engage in combat with enemies to earn currency which can be used to acquire more equipment. <br>
+                            Each page was designed using HTML and CSS, while JavaScript did most of the calculations and interactions. Player information such as class, currency, and stats were saved and loaded using PHP.</p>
+                        
+                        <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj2/screen1.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Character class selection screen.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj2/screen2.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Shop where players can trade in currency for equipment and wares.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj2/screen3.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>An example of one of the combat screens.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj2/Char3.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Game assets were (shoddily) drawn by hand. Not all sprites were used in game.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails2" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements:</text>
+                                <ul class="detailList">
+                                    <li>Complete within the given time limit (3 months).</li>
+                                    <li>No real requirements, this project was mainly a display of the skills we had learned over the course of the term.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details:</text>
+                                <ul class="detailList">
+                                    <li>Web pages designed using HTML / CSS, coding done in JavaScript, information transferred between pages through PHP.</li>
+                                    <li>Multiple character classes with varying stats which affect gameplay and style.</li>
+                                    <li>Turn-based combat with randomized outcomes.<br>
+                                        -Damage rolling (Hit between a min/max threshold).<br>
+                                        -Status afflictions (Sleep, stun, paralysis).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descMaterials2" style="display: none;">
+                        <text style="font-size: 32px;">No materials required as it was all completed online.</text>
+                    </div>
+                </div>
+            </div>
+            <!--Project 3: Shield-->
+            <div class="projectMain w-100" id="projectMain3">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 3)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 3)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 3)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview3" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar3">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical3">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical3">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software3">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">Metalwork has always been a huge passion of mine, as it is an excellent medium to express creative freedom, allowing one to create sculptures, replicas, and usable tools from a workable and durable material. This has allowed me to learn the various shop machines as well as proper design methods and welding.</p>
+                        </div>
+                        <p class="overviewTextFiller">This project was a capstone for my senior year in our high-school automotive shop. A friend and I opted to create a wearable replica of the Wakandan Shield given to Captain America in 
+                            <a href="https://marvelcinematicuniverse.fandom.com/wiki/Avengers:_Infinity_War" target="blank"><i>Avengers: Infinity War</i></a>. 
+                            The shield was first measured and created out of paper, before being transferred to cardboard for dimensioning and fitting. Finally, it was cut from 20-gauge sheet metal, welded, and painted to prevent external wear.</p>
+                        
+                        <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              <button type="button" data-bs-target="#carousel3" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                              <button type="button" data-bs-target="#carousel3" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                              <button type="button" data-bs-target="#carousel3" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj3/shield1.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Initial paper cutouts.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj3/shield2.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Cardboard replica for dimension and fitting.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj3/shield3.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Metal replica after being welded together.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj3/shield4.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Completed shield with automotive paint to prevent wear.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj3/shield5.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Underside was padded with the felt of an old chair. Arm hold welded at the top, with a belt riveted for a comfortable fit to the forearm.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj3/shield6.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>The shield is functional, and fit to my arm.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails3" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements (As decided by myself):</text>
+                                <ul class="detailList">
+                                    <li>Must be completed in 3 months (Time remaining in the term).</li>
+                                    <li>Be durable (i.e resistant to wear, denting, scratches).</li>
+                                    <li>Wearable and Comfortable.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details:</text>
+                                <ul class="detailList">
+                                    <li>Created by layering sheet metal pieces.<br>
+                                        -Smaller parts would be spot welded by machine.<br>
+                                        -When parts became too thick to spot weld, MIG welded together and grinded flat.</li>
+                                    <li>Handle made from folding metal several times for a rounded grip, welded onto the back of the shield.<br>
+                                        -Forearm strap secured by cutting up an old belt and riveting into place.</li>
+                                    <li>Padded using fabric from an old chair and crimped / hot glued into place.</li>
+                                    <li>Sprayed initially with automotive paint before a second pass of clear primer.<br>
+                                        -Primer protects the parts not painted black while preserving the detail work.<br>
+                                        -Automotive paint used for corrosion resistance and scratch protection.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descMaterials3" style="display: none;">
+                        <div class="matRowContainer">
+                            <div class="row w-100 position:relative;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj1/sheet.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    Weldable Steel Sheet: 20 Gauge</div>
+
+                                <div style="height:auto;padding-top: 16px;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Cold-Rolled Steel sheet metal. Pretty self-explanatory. </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Project 4: CAD-->
+            <div class="projectMain w-100" id="projectMain4">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 4)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 4)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 4)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview4" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar4">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical4">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical4">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software4">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">A competition for the entire first-year engineering students is to design a small kaychain as an introduction to CAD. The top designs would get their keychains 3-D printed.</p>
+                        </div>
+                        <p class="overviewTextFiller">A small keychian designed to double as a fidget tool. The two shell halves would be printed with alignment pins and would house two different sized gears which could be rotated. The keychain is printed with the name of our team section (C-5) in the front, and the engineering E on the back.</p>
+                        
+                        <div id="carousel4" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj4/keychain1.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Original CAD file for the half-shells</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj4/keychain2.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Render of all the separate parts. Alignment pins were<br> used to ensure the halves connected neatly</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj4/keychain3.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Final printed product. Unfortunately, the keychain was printed all as one part.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails4" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements:</text>
+                                <ul class="detailList">
+                                    <li>Fits the given dimensions: 4.0cm height, 1.5cm width, 1.0cm thickness.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details:</text>
+                                <ul class="detailList">
+                                    <li>Modelled in the OnShape CAD program.</li>
+                                    <li>Created with two gears -one larger, one smaller.<br>
+                                        -Smaller gear protrudes from the side of the keychain, allowing for rotation.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <text style="font-size: 32px;">Details of note:</text>
+                        <ul class="detailList" style="width:80%;min-width:300px;max-width:1000px;">
+                            <li>Project voted Top 10 designs out of 800+ participants.</li>
+                            <img src="Assets/proj4/topDesigns.png" style="width: 50%; min-width: 300px; height: auto;">
+                        </ul>
+                    </div>
+                    <div id="descMaterials4" style="display: none;">
+                        <text style="font-size: 32px;">No materials required as it was all completed online.</text>
+                    </div>
+                </div>
+            </div>
+            <!--Project 5: Chair-->
+            <div class="projectMain w-100" id="projectMain5">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 5)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 5)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 5)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview5" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar5">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical5">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical5">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software5">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">The Maasai are a semi-nomadic tribe in Eastern Africa. Due to this lifestyle, their belongings are to be portable and light-weight. This project was to design a cardboard chair for the Massai schoolchildren which should be sustainable, easy to construct, lightweight and compact for ease of transportation.</p>
+                        </div>
+                        <p class="overviewTextFiller">Our team designed the chair with an interlocking grid surrounded tightly by a cylindrical sheath. The lid sits atop the grid with a slot in the back for a back rest. The chair can be unfolded quickly, and when packed up, can be fitted within the cylindrical sheath. The entire assembly can fold flat and be held compact with string.</p>
+                        <p class="overviewFluff">To learn more about the lifestyle and traditions of the Maasai peoples, click <a href="http://maasaiwilderness.org/maasai/" target="blank">here</a>.</p>
+                        
+                        <div id="carousel5" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              <button type="button" data-bs-target="#carousel5" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                              <button type="button" data-bs-target="#carousel5" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                              <button type="button" data-bs-target="#carousel5" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj5/chair1.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Original concept sketches for the chair</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj5/chair2.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Prototype pieces laid out</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj5/chair3.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>First prototype. Interlocking star-shape base can be seen here.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj5/chair4.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Completed prototype. Cylindrical sheath added to contain the interlocked base. Backrest can be seen slotted into the base.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj5/chair5.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Finalized design of the chair, with the prototype for scale.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj5/chair6.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Team C-5 posing with the project poster as well as the full scale chair.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails5" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements (As decided by the team):</text>
+                                <ul class="detailList">
+                                    <li>All parts produced from a single 3ft x 3ft sheet of cardboard.</li>
+                                    <li>Be constructed from and held together by sustainable materials (in this case, cardboard).</li>
+                                    <li>Be assembled / dismantled within 1 minute.</li>
+                                    <li>Support a minimum of 150 lbs (68 kg).</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details:</text>
+                                <ul class="detailList">
+                                    <li>Comfortable dimensions for the schoolchildren.<br>
+                                        -14" high seat, increased to 22" when backrest is added.<br>
+                                        -Wide base provides adequate wiggle room, and a solid foundation.</li>
+                                    <li>Backrest created with triangular flaps which fold back to act as a brace when leaning back.</li>
+                                    <li>Markings of a Maasai tribe are drawn along the outer face, which can be designed by children for a unique look and engaging their creativity.</li>
+                                    <li>Areas of improvement:<br>
+                                        -Simplifying assembly process.<br>
+                                        -Improve on a more compact design (currently compacts very flat, but backrest takes up unnecessary space).
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <text style="font-size: 32px;">Details of note:</text>
+                        <ul class="detailList" style="width:80%;min-width:300px;max-width:1000px;">
+                            <li>Chair managed to support 180+ lbs, surpassing initial requirements</li>
+                            <li>Ranked within top 5 designs for weight supported and comfortability</li>
+                        </ul>
+                    </div>
+                    <div id="descMaterials5" style="display: none;">
+                        <div class="matRowContainer">
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj5/cardboard.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    Cardboard</div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Standard C-flute [5/32" (4.0mm)] cardboard used for most shipping boxes.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Project 6: Claw-->
+            <div class="projectMain w-100" id="projectMain6">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 6)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 6)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 6)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview6" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar6">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical6">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical6">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software6">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">A first-year engineering project is to create a robot claw which can be operated remotely or autonomously. The given task was split into two categories: The first round consists of picking up an array of objects varying in size, shape, and weight. The second round would test the claw's ability to pick up objects in bulk.</p>
+                        </div>
+                        <p class="overviewTextFiller">The claw body was created from aluminum sheet metal and held together by rivets. The assembly was operated by a servo motor controlled by an Arduino Uno. This was all powered by an on-board rechargeable power bank. The whole robot would be lowered on a string by the controller, where a sonar module would detect the floor and automatically close the jaws of the claw.</p>
+                        
+                        <div id="carousel6" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              <button type="button" data-bs-target="#carousel6" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                              <button type="button" data-bs-target="#carousel6" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj6/claw1.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Claw top-side orthographic view (Units in cm).</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj6/claw2.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Claw front-side orthographic view (Units in cm).</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj6/claw3.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Claw right-side orthographic view (Units in cm).</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj6/claw4.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Framework of the claw without any electrical components (parts had to be returned to the professors).</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj6/claw5.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Completed claw with all the electrical components.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails6" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements (As decided by the team).</text>
+                                <ul class="detailList">
+                                    <li>Be constructed from the aluminum sheet metal (This was an exercise for familiarization with the metal working tools).</li>
+                                    <li>Pick up varying types of objects (flat, round, small, etc).</li>
+                                    <li>Have a quick reaction time.<br>
+                                        -Detect when near the floor and pick up object(s) without a long wait.
+                                        -Keep closed for adequate time to get to drop-off zone (~10s).</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details</text>
+                                <ul class="detailList">
+                                    <li>Coded in the Arduino Ide (C++) and run on the Arduino Uno using provided parts.<br>
+                                        -Sonar module allows for the claw to autonomously retrieve and release objects.<br>
+                                        -Battery pack provides 4+ hours of use before needing to recharge (via micro-usb). </li>
+                                    <li>Motor rotating in one direction would pull a line on the outside to open the claw. Rotating in the opposite direction would loosen the outside and pull a line on the inside to close.</li>
+                                    <li>One hinged jaw similar to a broom and dustpan.<br>
+                                        -Utilizing full range of motion of the motor ensured a tight clamp on objects.<br>
+                                        -Allowed for less moving parts.</li>
+                                    <li>Folded side tabs angled outward to create a scoop shape and prevent objects from falling out the edges.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descMaterials6" style="display: none;">
+                        <div class="matRowContainer">
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/aluminum.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    Aluminum Sheet Metal</div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Aluminum sheet metal. Prevents wear from rust.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/arduino.png" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="blank">Arduino Uno R3</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Basic microcontroller capable of doing many starter projects. Excellent way to get started with coding (C++) and wiring electronic components.</div>
+                            </div>
+                            <div class="row w-100 position:relative;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/sonar.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.sparkfun.com/products/15569" target="blank">Sonar distance sensor</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    An ultrasonic distance sensor capable of detecting distances from 2-400cm</div>
+                            </div>
+                            <div class="row w-100 position:relative;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/servo.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://store.arduino.cc/usa/feetech-rc-micro-servo-1-8kg-cm-metal-gears-analog-servo" target="blank">Servo Motor</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Servo motor with a variety of different attachment arms. Capable of rotating 180 degrees in either direction.</div>
+                            </div>
+                            <div class="row w-100 position:relative;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/arduinokit.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.made-in-china.com/showroom/foing123/product-detailXvSJjCcoSKpR/China-Most-Complete-Starter-Kit-for-Arduino-Project-with-Uno-R3.html" target="blank">Arduino Uno R3 parts kit</a></div>
+
+                                <div style="height:auto;padding-top: 16px;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Alternatively, all parts can be found here including the board, sensors, wiring, and breadboard</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Project 7: Line Bot-->
+            <div class="projectMain w-100" id="projectMain7">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 7)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 7)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 7)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview7" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar7">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical7">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical7">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software7">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">A second year introductory project: Create a line following robot using given components and household materials. The robot will be given a series of courses to run scaling in difficulty. Projects would be assessed through various criterion such as design, overall neatness, code, and both difficulty of course, and time required to complete said course.</p>
+                        </div>
+                        <p class="overviewTextFiller">This Line-Following robot utilizes phototransistors to detect a black line on white paper. Using logic coded in the Arduino IDE, it is able to trace the line including around bends and over gaps. Bot body was created using common materials such as cardboard, paper, and the all-important engineering material: duct-tape. Utilizing a lofted design, the components were kept open instead of having a chassis to give a unique and steampunk appeal.</p>
+                        <p class="overviewFluff">You can view the detailed description sheet I wrote for the project as a pdf
+                            <a href="Assets/proj7/LineFollowerDescSheet.pdf" target="blank">here</a>.</p>
+                        <p class="overviewFluff">Or view the project code on 
+                            <a href="https://github.com/jackykam/Line_Follower_Bot" target="blank">GitHub</a></p>
+
+                        <div id="carousel7" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel7" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel7" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel7" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              <button type="button" data-bs-target="#carousel7" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                              <button type="button" data-bs-target="#carousel7" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj7/bot1.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Overhead view of the robot. Arduino, Breadboard, and wires for each phototransistor are found up top.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj7/bot2.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Underside view of robot. Sensor bracket can be seen on the left. Individual motors powered each wheel.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj7/bot3.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Inside of the robot. Batteries and H-Bridge are kept underneath the loft as they required less tinkering.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj7/bot4.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Shot of the cardboard sensor bracket. phototransistors mounted underneath.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj7/bot5.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Completed robot.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel7" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel7" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails7" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements</text>
+                                <ul class="detailList">
+                                    <li>Be made from household materials (Parts from given kit were allowed)</li>
+                                    <li>Must be autonomously controlled</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details</text>
+                                <ul class="detailList">
+                                   <li>Five phototransistors on the sensor bracket detect the black line against the white background.</li>
+                                   <li>Code runs off an Arduino Uno R3.<br>
+                                        -Logic aims to keep the middle three sensors on the line.<br>
+                                        -When an outer sensor detects black, rotate the robot in that direction.<br>
+                                        -If both sensors detect lines, or all sensors do not detect a line, move straight forward until line is found.</li>
+                                    <li>Lofted platform keeps components organized and accessible.<br>
+                                        -Wiring and Arduino are kept on the raised level for ease of modification.<br>
+                                        -Power source and H-Bridge kept on lower level as they don't require as much attention.</li>
+                                    <li>Powered by two 9V batteries wired in series.<br>
+                                        -Bot can still run with one 9V, however it loses the ability to fine-tune motor speed.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descMaterials7" style="display: none;">
+                        <div class="matRowContainer">
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/arduino.png" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="blank">Arduino Uno R3</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Basic microcontroller capable of doing many starter projects. Excellent way to get started with coding (C++) and wiring electronic components.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj7/sensor.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.digikey.ca/en/products/detail/onsemi/QRD1114/187536" target="blank">QRD1114 IR sensors</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Infrared sensors used to detect distinctions in black and white at close proximity.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj6/arduino.png" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://elmwoodelectronics.ca/products/2amp-7v-30v-l298n-motor-driver-stepper-driver-2-channels?variant=35383444275365&currency=CAD" target="blank">L298N H-Bridge</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Simple motor driver capable of managing two DC motors.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj7/botKit.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://robocraze.com/products/uno-diy-line-follower-kit-compatible-with-arduino" target="blank">Robot Kit</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Parts kit for the line follower including base plate, motors and motor driver (L293D shield).</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj7/battery.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.amazon.ca/Duracell-Coppertop-Alkaline-Batteries-Count/dp/B000K2NW08" target="blank">9-Volt batteries</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    The main power source powering the Arduino, motors and motor driver.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Project 8: Audio Glove-->
+            <div class="projectMain w-100" id="projectMain8">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShow('Overview', 8)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Details', 8)">Details</button>
+                    <button class="descHeadings col-md-4" onclick="descShow('Materials', 8)">Materials</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOverview8" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBar8">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanical8">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electrical8">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="software8">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">A second year capstone project.  Modern audio synthesizers are typically distanced from the creator: utilizing an array of knobs, buttons, and switches on boards to achieve the end result. This can often be unintuitive on what mechanisms control which aspects of audio, and create confusion for new and inexperienced users. To this end, our team opted to create a device which integrates the users hand range of motion to produce these same results with a more innovative and intuitive design.</p>
+                        </div>
+                        <p class="overviewTextFiller">The Audio Synthesizer Glove is capable of translating hand movements such as finger displacement, hand rotation and gestures into tangible sound. All housings and splints were CAD modelled in SolidWorks and 3-D printed, with a combination of flex sensors and accelerometer used to create integrated input methods. Main components were soldered together, and communication was achieved over WiFi through the use of an Espressif ESP-32 module. The user interface leverages a JavaScript library (Tone.js) to create audio ranging from drum beats to notes produced by traditional synthesizers and oscillators.</p>
+                        <p class="overviewFluff">You can find the original product video <a href="https://youtu.be/hApUgnpcBEA" target="_blank">here</a></p>
+                        <p class="overviewFluff">As well you can find the code for the user interface and the ESP32 module <a href="https://github.com/jackykam/Audio_Synthesizer_Glove" target="blank">here</a>.</p>
+                        <button class="overviewButton" onclick="collapseMe('proj8Collapse')">Github Notes</button>
+                                <div class="overviewCollapse" id="proj8Collapse">
+                                    -The web page files must be saved in a folder called 'data' separate from the Arduino file as the interface is flashed onto the microcontroller during web server creation.<br>
+                                    -In the .ino file the network name and password will need to be provided as the glove and UI communicate over WiFi.
+                                    -The UI assets must all be saved on the top level of the folder (no sub-folders can be used).<br>
+                                    -As the glove isn't included (obviously), the interface has been provided with sliders for user interaction.</div>
+                        
+                        <div id="carousel8" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                              <button type="button" data-bs-target="#carousel8" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                            </div>
+                            <div class="carousel-inner" id="carouselInner" style="position: absolute; width: 100%;height:100%;">
+                              <div class="carousel-item active" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg" src="Assets/proj8/glove1.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Initial sketches of glove and planning layout across the hand.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj8/glove2.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Electronics schematic for the ESP-32 to the various sensors.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj8/glove3.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Solidworks models for the finger splints and accelerometer / gyrometer housing.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj8/glove4.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Exploded Solidworks model for the ESP-32 housing. Grooves have been cut for ease of access to the pins when wiring and remapping.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj8/glove5.jpg" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Glove with all parts assembled on the hand prior to wiring & soldering.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj8/glove6.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>Compeleted glove with all wires hooked up.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item" style="position:absolute;width: 100%;height:100%;background-color: black;">
+                                <img class="carouselImg"  src="Assets/proj8/glove7.png" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <p>The user interface contains 9 'tracks' to work with, each with adjustable settings. The design is simplistic and intuitive.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel8" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel8" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="descDetails8" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Requirements</text>
+                                <ul class="detailList">
+                                    <li>Glove should be able to produce audio to a satisfactory degree (can make basic loops and beats).</li>
+                                    <li>Provide a comfortable, intuitive, and ergonomic design.</li>
+                                    <li>Materials should be durable, components modular and replaceable.</li>
+                                    <li>Achieve wireless communication (Bluetooth BLE or WiFi).</li>
+                                    <li>Low input latency to ensure natural movements and laggless experience.</li>
+                                    <li>Completed within a timeframe for 4 months (time remaining in the term).</li>
+                                    <li>Soft budget of $200.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Design Details</text>
+                                <ul class="detailList">
+                                    <li>Utilizes finger movement and hand gestures to navigate and use the workspace.<br>
+                                        -Flex sensors on the thumb, pointer, and middle fingers control the volume, pitch (hz) and cadence (bpm) respectively.<br>
+                                        -Hand swipe and rotation control next/previous track and play/pause of all audio.</li>
+                                    <li>Able to emulate audio through a variety of drum beats, synthesizers and oscillators.<br>
+                                        -Tracks currently include a kick and snare drum, 5 synthesizers covering quarter, half, and whole notes, and two oscillators for square and sine waves.<br>
+                                        -Automatically loops, and set to the same transport line, allowing additional tracks to remain in sync when played.</li>
+                                    <li>Components were measured,  CAD modelled, and sanded to best fit beta tester's hand dimensions.</li>
+                                    <li>3-D printed parts for the hand were kept lightweight, maintaining flexibility and breathability.</li>
+                                    <li>User Interface flashed onto the ESP32 microcontroller where it is launched on a given IP address during server initialization.</li>
+                                    <li>Assembly powered by a rechargeable Lithium Polymer battery soldered to a micro USB cable.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <text style="font-size: 32px;">Awards</text>
+                        <ul class="detailList" style="width:80%;min-width:300px;max-width:1000px;">
+                            <li>Voted on by all years of IGEN students.<br>
+                                -Won top second year project ($150 per person, $900 total).</li>
+                        </ul>
+                    </div>
+                    <div id="descMaterials8" style="display: none;">
+                        <div class="matRowContainer">
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-top:30px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:120px; width:auto;" src="Assets/proj8/esp.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.amazon.ca/KeeYees-Development-Bluetooth-Microcontroller-ESP-WROOM-32/dp/B07PP1R8YK/ref=sr_1_7?dchild=1&keywords=esp32&qid=1613595939&sr=8-7" target="blank">Espressif ESP-32</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    A robust microcontroller designed for a wide array of  IoT projects. Dual-Core CPU, 4MB flash, Ultra-Low Power processor alongside providing both WiFi and Bluetooth functionality. Learn more about this device
+                                    <a href="https://www.espressif.com/en/products/socs/esp32" target="blank">here</a>.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj8/mpu.jpeg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.amazon.ca/WayinTop-MPU-6050-Gyroscope-Accelerometer-Converter/dp/B07P5YZ7ZD/ref=sr_1_5?crid=3K2D9B2YVBZ9H&dchild=1&keywords=mpu6050&qid=1611873250&sprefix=mpu%2Caps%2C222&sr=8-5" target="blank">MPU-6050</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    A Triple-Axis accelerometer and gyrometer with adjustable sensitivity. Able to measure acceleration, velocity, orientation, displacement, and more.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj8/bend.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://www.amazon.ca/Pressure-ZD10-100-Resistance-Type-Resistor-Sensitive/dp/B07MHTWR1C/ref=sr_1_2?dchild=1&keywords=short+flex+sensor&qid=1611873681&sr=8-2" target="blank">Flex / Bend Sensor</a></div>
+
+                                <div style="height:auto;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Flex sensor detects changes in pressure when bent. Sensor can be hooked up to a circuit to receive electronic signal output.</div>
+                            </div>
+                            <div class="row w-100 position: relative;" style="margin-bottom: 30px;">
+                                <div style="height:150px;margin-bottom:10px;" class="order-lg-1 col-lg-4 order-md-1 col-md-7 align-self-center">
+                                    <img class="rounded mx-auto d-block" style="height:100%; width:auto;" src="Assets/proj8/lipo.jpg" /></div>
+
+                                <div style="height:60px;font-size:24px;font-weight:900px;" class="order-lg-2 col-lg-3 order-md-2 col-md-5 align-self-center">
+                                    <a href="https://hobbyking.com/en_us/rhino-300mah-2s-50c-lipo-battery-pack-w-xt60.html?___store=en_us" target="blank">Lihium Polymer Battery - 300mAh</a></div>
+
+                                <div style="height:auto; padding-top: 16px;" class="order-lg-3 col-lg-5 order-md-4 col-md-12 align-self-center">
+                                    Rechargeable Lithium Polymer battery. 300mAh capacity with 50C 7.4V discharge. Learn about LiPo batteries 
+                                    <a href="https://rogershobbycenter.com/lipoguide" target="blank">here</a>.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--==================================================================================================================================================-->
+            <!--Project Ongoing 1: Website-->
+            <div class="projectMain w-100" id="projectOngoingMain1">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingOverview', 1)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingDetails', 1)">Plans</button>
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingMaterials', 1)">Progress</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOngoingOverview1" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBarOngoing1">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanicalOngoing1">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electricalOngoing1">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="softwareOngoing1">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">Creating a project portfolio was a project started in the summer of 2021 to have a place to upload and showcase some projects I have done. On top of teaching myself some basic front-end web development, it was a chance to utilize the Bootstrap 5.0 CSS framework alongside my previous design knowledge.</p>
+                        </div>
+                        <p class="overviewTextFiller">The website is designed to showcase some projects I am particularly proud of. Projects which I feel cover a broad array of skills from metalwork, to CAD design, and of course, coding and web development. This was the first time I have used Bootstrap to code a responsive webpage, as the first iteration did not feature the Bootstrap framework and was therefore illegible on mobile devices and tablets.</p>
+                    </div>
+                    <div id="descOngoingDetails1" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Proposed Requirements</text>
+                                <ul class="detailList">
+                                    <li>Present my projects in a unique and interesting format.</li>
+                                    <li>Include some semblance of a functional sorting system.</li>
+                                    <li>Should utilize features I haven't attempted before. (I just like learning and expanding my libraries).</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Proposed Design Details</text>
+                                <ul class="detailList">
+                                    <li>Portfolio page features three main pages (No need to go into detail if you are already on this page).</li>
+                                    <li>Projects are given categorical 'tags', which they can be sorted by.<br>
+                                        -<b>Drafting:</b> Projects which required detailed design documentation. Can be used to display abilities in concept sketching, properly dimensioning drawings, and CAD design.<br>
+                                        -<b>Physical:</b> Projects which required me to physically create a prototype or working assembly. Can be used to display abilities in designing something functional, going through the design process from initial concept to final product, or various machining skills.<br>
+                                        -<b>Software:</b> Projects which feature web design, or components such as microcontrollers which require code to perform a tangible function. Can be used to display abilities in innovative thinking, the analysis, logic, and understanding of data, as well as some basic skills such as coding etiquette.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descOngoingMaterials1" style="display: none;">
+                        <ul class="detailList">
+                            <li>This project will always be an ongoing venture as I begin, work on, and complete new projects.</li>
+                            <li>Implement a more advanced sorting system.<br>
+                                -Possibly rework the way the project information is currently organized.</li>
+                            <li>Possibly shift to Python for future web development.<br>
+                                -Python is a very popular and well-known language.<br>
+                                -Access to many libraries and resources to better assist in this web page development.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--Project Ongoing 2: FigJig-->
+            <div class="projectMain w-100" id="projectOngoingMain2">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingOverview', 2)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingDetails', 2)">Plans</button>
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingMaterials', 2)">Progress</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOngoingOverview2" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBarOngoing2">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanicalOngoing2">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electricalOngoing2">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="softwareOngoing2">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">The ability to make subtle and deliberate movements in day to day life is often overlooked. For many afflicted with hand tremors (such as those with severe anxiety or Parkinson's Disease) suffer from hand tremors which can complicate simple tasks such as drinking from a cup or writing with a pen.</p>
+                        </div>
+                        <p class="overviewTextFiller">My team's plan is to create a product which combines electromyography alongside accelerometer and gyrometer sensors to monitor the hand motions of the user. A machine learning algorithm is to analyze these electrical signals and determine whether a movement is voluntary or involuntary (tremoring). The device in turn will mitigate or reduce these tremors mechanically through the use of angular momentum produced by a flywheel mounted on the rear of the palm. The motivation is to have an end product which can easily be worn and taken off without impeding the everyday actions of the user while actively reducing the intensity of their hand tremors. </p>
+                    </div>
+                    <div id="descOngoingDetails2" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Proposed Requirements</text>
+                                <ul class="detailList">
+                                    <li>Be non-intrusive to daily activity. (eg. Limiting movement, causing injury)</li>
+                                    <li>Components should be locally located on the user. (No tether or wires)<br>
+                                        -This means any code must be loaded onto the microcontroller or an external memory card.</li>
+                                    <li>Machine learning algorithm should be able to accurately discern the difference between voluntary and involuntary movement.</li>
+                                    <li>Have a long lasting (rechargeable) battery.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Planned Details</text>
+                                <ul class="detailList">
+                                    <li>Use Electromyography (EMG) sensors to detect electrical impulses in the users arms.</li>
+                                    <li>Have a new user perform tasks which may induce shaking in the hands in order to have training data.<br>
+                                        -Sensor data will be saved to an external SD card to reduce on active memory usage. <br>
+                                        -Machine learning algorithm will then be changed based on the collected data to determine when tremor occurs, the intensity of tremor, and the movement of the user.</li>
+                                    <li>Outputs of the algorithm will be able to:<br>
+                                        -Isolate intensity of tremor from noise due to movements.<br>
+                                        -Correlate intensity of tremor with accelerometer data to determine what motor speed is required to mitigate tremor.</li>
+                                    <li>Create testing rig to remove human error; test the effective force produced at a given rpm of flywheel.</li> 
+                                    <li><b>More details to be determined as project progresses</b></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descOngoingMaterials2" style="display: none;">
+                        <ul class="detailList">
+                            <li>Find necessary components and method of attaching to the arm.<br>
+                                -Arduino Nano 33 BLE Microcontroller was selected for its computational specs and the integrated 9-axis accelerometer/gyrometer/magnetometer.<br>
+                                -Brushless DC motor used alongside a 3D printed flywheel will be used to produce a torque through angular mmomentum.</li>
+                            <li>Learn Machine Learning in Python.<br>
+                                -Coding was broken down into three seperate algorithms:<br>
+                                    -Determine if the user is moving their hand / arm. <br>
+                                    -Determine if the user is tremoring by isolating the noise from motions. <br>
+                                    -Calculate the appropriate motor speed required to produce adequate force.</li>
+                            <li>Design a testing rig to obtain accurate mitigation force.<br>
+                                    -Scotch Yoke design was used to produce an oscillatory vertical motion which could be adjusted in terms of frequency and amplitude.<br>
+                                    -Flywheel induced force measured using a protractor and springs.<br>
+                                    -Use of external rig eliminates potential human error and produces more accurate correlation between amplitude and rpm. 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--Project Ongoing 3: Diveye-->
+            <div class="projectMain w-100" id="projectOngoingMain3">
+                <div class="row col-12 flex-md-row" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingOverview', 3)">Overview</button>
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingDetails', 3)">Plans</button>
+                    <button class="descHeadings col-md-4" onclick="descShowOngoing('OngoingMaterials', 3)">Progress</button>
+                </div><br>
+                <div class="row col-12" style="top:0px;left:0px;right:0px;margin:auto;">
+                    <div id="descOngoingOverview3" style="position:relative; display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="skillBars col-md-5 position-static" style="padding: 10px 0px;" id="skillBarOngoing3">
+                                <table style="position:relative;height:100%;width:100%;">
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Mechanical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="mechanicalOngoing3">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Electrical</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="electricalOngoing3">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                    <tr><td>
+                                        <text class="skillBarsTitle">Software</text>
+                                        <div class="skillBarsOuter position-relative">
+                                            <div class="skillBarsInner position-inherit w-0" id="softwareOngoing3">0/10</div>
+                                        </div>
+                                    </td></tr>
+                                </table>
+                            </div>
+                            <p class="overviewTextSynopses col-md-7">Diving equipment can often be a lot of multitasking for divers -having to keep up with time spent underwater, checking oxygen levels, and ensuring safety when resurfacing (the bends, nitrogen narcosis, etc).</p>
+                        </div>
+                        <p class="overviewTextFiller">A set diving goggles with an inbuilt display to show all necessary information for divers (O2 levels, depth, time spent underwater, pressure). This would help alleviate much of the required juggling when diving allowing the user ot remain on task. External pressure sensors relay pressure, depth, and temperature. Integrated stopwatch could keep track of time spent at depth, as well as provide timing when resurfacing. On-board components are to be encased in a pressure proof container to prevent water / pressure damage. </p>
+                    </div>
+                    <div id="descOngoingDetails3" style="display: none;">
+                        <div class="row flex-md-row-reverse">
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Proposed Requirements</text>
+                                <ul class="detailList">
+                                    <li>Displays all information on a Heads-Up-Display (HUD).</li>
+                                    <li>Survive a crush depth of ~200m (20 Bar).</li>
+                                    <li>Goggles should be drop / shock proof.</li>
+                                    <li>Corrosion Resistant.</li>
+                                    <li>Long lasting battery life.<br>
+                                        -Minimum 4h operable time.<br>
+                                        -Rechargeable.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <text style="font-size: 32px;">Planned Details</text>
+                                <ul class="detailList">
+                                    <li>Provides External data.<br>
+                                        -Time of day (24H time).<br>
+                                        -Current diving depth.<br>
+                                        -Experienced external pressure.</li>
+                                    <li>Display instrument data.<br>
+                                        -Goggle battery level.<br>
+                                        -Oxygen Tank levels</li>
+                                    <li>Relay biometric data (heartrate, body oxygen, nitrogen)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="descOngoingMaterials3" style="display: none;">
+                        <ul class="detailList">
+                            <li>Need to create a pressure chamber to test crush depth.</li>
+                            <li>Determine necessary electronics.<br>
+                                -How to create HUD within goggles?<br>
+                                -Which sensors work best?<br>
+                                -How to house electronics?</li>
+                            <li>Create a logical and intuitive layout for the user.<br>
+                                -Prevent all information from cluttering the viewport.<br>
+                                -Display all necessary information at a glance.</li>
+                            <li>Determine failsafes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+    </span>
+</body>
+</html>
+<!--
+
+-->

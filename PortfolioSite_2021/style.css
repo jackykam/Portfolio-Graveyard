@@ -1,0 +1,505 @@
+/*BootStrap NavBar*/
+.navbar {
+    background:#535353;}
+.nav-link,
+.navbar-brand {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;}
+.nav-link {
+    margin-right: 1em !important;}
+.nav-link:hover {
+    color: rgb(146, 146, 146);}
+.navbar-collapse {
+    justify-content: flex-end;}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 15px;}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); 
+    background: rgba(99, 99, 99, 0.3);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 5px;}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to left bottom, rgb(165, 11, 11), rgb(37, 37, 180)); 
+    border-radius: 20px;
+    opacity: 0.5;}
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1; }
+
+/* Different Page Types */
+span.mainContainer{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;}
+span.menuSpan{
+    position: absolute;
+    border-radius: 20px;;
+    background-color: rgba(255, 255, 255, 0.0);
+    top: 100px;
+    bottom: 0px;
+    left: 50px;
+    right: 50px;
+    display: none;}
+
+/*Home Page styles*/
+img.homeImage{
+    max-width: 400px;}
+text.homeHeaderName{
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;}
+text.homeHeaderTitle{
+    position: relative;
+    top: 0px;
+    color: rgb(199, 199, 199);
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: 70px;}
+div.homeBlurb{
+    position: relative;
+    border-top: 5px solid white;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    padding: 30px 5px 0px 5px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    text-align: justify;}
+text.projectsLink{
+    color: rgb(45, 176, 252);
+    text-decoration: underline;
+    cursor: pointer;}
+img.mediaIcon:hover{
+    cursor: pointer;}
+@media screen and (min-width: 768px){
+    text.homeHeaderName{font-size: 4vw;};
+    text.homeHeaderTitle{font-size: 2vw;};
+    div.homeBlurb{font-size: calc(0.7vw + 0.7vh);}
+}
+
+/*Project Table styles */
+text.projectText{
+    position: absolute;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-family: 'Raleway', sans-serif;
+    font-size: calc(3vw + 3vh);
+    font-weight: 700;
+    text-align: center;
+    padding: 0px 10px 10px 10px;}
+text.sortText{font-size: 20px;}
+@media screen and (min-width: 576px){
+    text.sortText{ font-size: 1.5vw;}}
+    /*All the sort-by buttons*/
+button.sortingButton{
+    position: relative;
+    border: 6px solid;
+    border-image:linear-gradient(45deg,rgb(146, 1, 175),rgb(85, 29, 216)) 10;
+    height: auto;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    padding: 0px 0px 5px 0px;
+    margin: auto;}
+button.sortingButton:hover{
+    background-color: rgb(172, 172, 172);
+    cursor: pointer;}
+button.sortingButton:hover .sortText{
+    border-bottom: 2px solid black;}
+    /*Project Table and Tiles*/
+div.projectTable{
+    top: 25%;
+    left: 0px;
+    right: 0px;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    border-spacing: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;}
+div.projectSq{
+    position: relative;
+    background-color: rgb(53, 53, 53);
+    background-size: 100% 100%;
+    max-width: 300px;
+    max-height: 300px;
+    min-height: 300px;
+    border: 6px solid transparent;
+    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    overflow: hidden;
+    transform: scale(0);
+    transition: 0.5s;}
+div.projectSq:hover{
+    border: 6px solid;
+    border-image:linear-gradient(45deg,red,blue) 10;
+    cursor: pointer;}
+div.projectSq:hover .iconDesc{
+    visibility: visible;
+    left: 0px;}
+div.projectSq.animate{
+    transform: scale(1);
+    transition: 0.25s;}
+    /*All the Tile information*/
+text.iconTitle{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgba(0, 0, 0, 0);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    min-height: 60px;
+    padding: 10px 10px 10px 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    align-content: center;
+    color: rgb(70, 70, 70);
+    letter-spacing: 0.05em;}
+text.iconClassifier{
+    color: rgba(121, 121, 121);
+    font-size: 16px;}
+img.iconImage{
+    border-radius: 20px;
+    max-width: 100%;
+    max-height: 100%;}
+div.iconImageCon{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    bottom: 80px;
+    text-align: center;
+    margin: auto;}
+div.iconDesc{
+    position: absolute;
+    background: linear-gradient(to left bottom, rgb(44, 44, 44, 0.9) 10%, 60%, rgb(0,0,0,0.9) 90%);
+    border-radius: 0px 15px 15px 0px;
+    top: 0px;
+    bottom: 0px;
+    left: -80%;
+    height: 85%;
+    max-height: 85%;
+    width: 80%;
+    z-index: 1;
+    margin: auto;
+    font-size: 1.3vw;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    align-items: center;
+    transition: left 0.3s;
+    transition-timing-function: ease-out;
+    visibility: hidden;
+    overflow: hidden;}
+div.descTitle{
+    position: absolute;
+    border: 6px solid;
+    border-top: black;
+    border-bottom: black;
+    border-image: linear-gradient(to bottom, rgb(0,0,0) 10%, 40%, rgb(167,167,167) 90%) 5;
+    top: 15px;
+    left: 0px;
+    right: 0px;
+    width: 85%;
+    height: 30px;
+    margin: auto;
+    align-items: center;
+    z-index: 1;
+    display: flex;
+    justify-content: center;}
+text.descTitle{ 
+    position: absolute;
+    margin: auto;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;}
+text.descText{
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 15px;
+    width: 80%;
+    margin: auto;
+    padding: 5px 0px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    overflow: auto; }
+div.descLine{
+    position: absolute;
+    border: none;
+    background: linear-gradient(45deg,rgb(0, 0, 0) 70%,rgb(167, 167, 167));
+    left: 0px;
+    right: 0px;
+    bottom: 13px;
+    height: 3px;
+    width: 80%;
+    margin: auto;} 
+
+/*Project Page styles*/
+    /*All the stuff for the project banner*/
+.jumbotron{
+    position: relative;
+    background: linear-gradient(to left bottom, rgb(87, 38, 201, 0.6) 40%, rgba(13, 69, 253, 0.6) 80%);
+    height: 30%;
+    min-height: 200px;
+    margin-top: 10px;
+    padding: 0px;
+    vertical-align: center;
+    color: white;
+    overflow: hidden;}
+img.closeButton{
+    position: absolute;
+    border: 5px solid transparent;
+    border-radius: 48px;
+    top: 20px;
+    right: 15px;
+    height: 48px;
+    width: 48px;}
+img.closeButton:hover{
+    border-color: rgba(255, 255, 255, 0.5);}
+img.banner{
+    position: absolute;
+    top:-50%; bottom:-50%;
+    left: 0px; right: 0px;
+    margin:auto;
+    width: 80%;
+    max-width: 800px;
+    height: auto;}
+#bannerTitle{
+    position: absolute;
+    left: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;}
+#bannerClassifier{
+        position:relative;
+        top: 40px;
+        color: rgba(121, 121, 121); 
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Raleway', sans-serif;}
+#bannerDate{
+    position:relative;
+    top: -20px;
+    color: rgb(255, 255, 255); 
+    font-size: 24px;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;}
+@media screen and (min-width: 1000px){
+    #bannerTitle{
+        margin-left: 25%;
+        font-size: calc(20px + 1vw);}
+    #bannerClassifier{
+        top: 60px;
+        left: 20px;
+        margin-left: 25%;
+        font-size: calc(10px + 0.6vw);}
+    #bannerDate{
+        top: 20px;
+        font-size: calc(20px + 1vw);
+    }}
+    /*Main Page & Navigation*/
+div.projectMain{
+    position: relative;
+    background: rgba(68, 68, 68, 0.5);
+    border-radius: 20px;
+    left: 0px;
+    right: 0px;
+    height: 65%;
+    width: 1000px;
+    padding: 0px 20px;
+    margin: auto;
+    margin-top: 10px;
+    color: white;
+    overflow-y: auto;
+    display: none;}
+button.descHeadings{
+    background: linear-gradient(to right top, rgb(92, 92, 92), rgb(56, 56, 56));
+    border: 3px solid white;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    overflow: hidden;}
+button.descHeadings:hover{
+    color: rgb(122, 122, 122);}
+@media screen and (min-width: 1000px){
+    button.descHeadings{
+        font-size: calc(16px + 0.6vw);
+    }}
+    /*SkillBar Div*/
+div.skillBars{
+    background: linear-gradient(to right bottom, rgb(0,0,0,0.8), rgb(75, 75, 75, 0.8));
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 240px;
+    display: none;}
+text.skillBarsTitle{
+    padding-left: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;}
+div.skillBarsOuter{
+    border: double 1px transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(110, 11, 240),#3020ff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-color: white; 
+    margin: 0px 30px;
+    padding: 5px;
+    overflow: hidden;}
+div.skillBarsInner{
+    background-color: rgb(22, 247, 112);
+    border-radius: inherit;
+    padding: 0px 10px;
+    color:rgb(0, 0, 0);
+    font-weight: 700;
+    transition: 0.5s;}
+    /*Overview Stuff*/
+p.overviewTextSynopses{
+    position: relative;
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;}
+p.overviewTextFiller{
+    position: relative;
+    margin: auto;
+    padding: 10px 0px 10px 0px;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;}
+p.overviewFluff{
+    position: relative;
+    left: 0px;
+    right: 0px;
+    top: 20px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;}
+@media screen and (min-width: 1000px){
+    p.overviewTextSynopses{
+        font-size: calc(10px + 0.6vw);
+    }
+    p.overviewTextFiller{
+        font-size: calc(10px + 0.6vw);
+        padding: 10px 30px;
+    }
+    p.overviewFluff{
+        font-size: calc(10px + 0.6vw);
+    }}
+.carousel{
+    position: relative;
+    top: 20px;
+    left: 0px;
+    right: 0px;
+    max-width: 700px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;}
+.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;}
+img.carouselImg{
+    position: absolute;
+    top:-50%; bottom:-50%;
+    left: -50%; right: -50%;
+    height: 200px;
+    width: auto;
+    max-width: 700px;
+    margin: auto;
+    display: block;}
+@media screen and (min-width: 700px){
+    img.carouselImg{
+        height: 400px;
+    }
+    .carousel{
+        height: 400px;
+    }}
+    /*Detail Stuff*/
+ul.detailList li{
+    font-size: 18px;
+    margin: 1em;}
+    /*Material Stuff*/
+div.matRowContainer{
+    border: 5px solid white;
+    border-radius: 20px;
+    height: auto;
+    width: 100%;
+    padding: 10px 10px 30px 10px;
+    margin: auto;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    overflow-y: scroll;}
+@media screen and (min-width: 768px){
+    div.matRowContainer{
+        width:80%;
+        min-width:300px;
+        max-width:1000px;
+    }}
+
+/*Specific Project page things*/
+    /*Audio Synthesizer Glove*/
+button.overviewButton{
+    position: relative;
+    background-color: transparent;
+    border: 2px solid grey;
+    border-radius: 10px;
+    width: 60%;
+    min-width: 240px;
+    height: 60px;
+    color: white;
+    padding: 0px 20px;
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;}
+div.overviewCollapse{
+    position: relative;
+    background-color: transparent;
+    top: 10px;
+    height: 0px;
+    max-height: 0px;
+    padding: 10px 0px 0px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.5s;
+    overflow: hidden;}
+
+
+
+

@@ -1,0 +1,60 @@
+//Jacky Kam
+//Portfolio Shit
+//Last Updated: May 7th, 2021
+
+//Portfolio Projects: Order Chronologically 
+    //Have Tags for Hardware, Software, Design
+        //Photos
+        //Project overview
+        //Discuss any tasks undertaken for said project
+        //Include any awards / notoriety
+    //High School:
+        //Gauntlet
+            //Photos
+            //Project overview
+            //Discuss any tasks undertaken for said project
+            //Include any awards / notoriety
+        //Helmet
+            //Photos
+            //Project overview
+            //Discuss any tasks undertaken for said project
+            //Include any awards / notoriety
+        //Shield
+            //Photos
+            //Project overview
+            //Discuss any tasks undertaken for said project
+            //Include any awards / notoriety
+        //Sumo Bot
+            //Photos
+            //Project overview
+            //Discuss any tasks undertaken for said project
+            //Include any awards / notoriety
+        //Coding Game
+            //Photos
+            //Project overview
+            //Discuss any tasks undertaken for said project
+            //Include any awards / notoriety
+        //Google Sketchups
+            //Photos
+            //Project overview
+            //Discuss any tasks undertaken for said project
+            //Include any awards / notoriety
+    //Uni
+        //Keychain design
+        //Chair
+        //Claw
+        //CAD Design
+        //Line Robot
+        //Da Glove
+    //Include ongoing Projects 
+        //Da Glove
+        //Unity Coding
+
+//Personal Profile
+    //Resume can be provided if contacted
+    //Include contact info
+        //Phone #
+        //Email
+    //Skills
+
+//Affiliations
